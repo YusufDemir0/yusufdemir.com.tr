@@ -1,6 +1,6 @@
-# Yusuf Demir — Freelance Bilgisayar Mühendisi (Gebze, Kocaeli)
+# Yusuf Demir — Freelance Bilgisayar Mühendisi (İzmit, Kocaeli)
 
-> Gebze/Kocaeli merkezli freelance bilgisayar mühendisi. İstanbul, Kocaeli ve Marmara Bölgesi'ndeki işletmelerle yüz yüze ya da çevrim içi, Türkiye'nin diğer illeriyle uzaktan çalışır. Kurumsal web sitesi, e-ticaret, mobil uygulama (Flutter, iOS/Android) ve işletmeye özel ERP/CRM sistemlerini aracı olmadan kendisi geliştirir.
+> İzmit merkezli freelance bilgisayar mühendisi. Marmara Bölgesi'ndeki işletmelerle yüz yüze ya da çevrim içi, Türkiye'nin her yerindeki işletmelerle çevrim içi çalışır. Kurumsal web sitesi, e-ticaret, mobil uygulama (Flutter, iOS/Android) ve işletmeye özel ERP/CRM sistemlerini aracı olmadan kendisi geliştirir.
 
 Kimlere uygun: Web sitesi olmayan ya da sitesi mobilde bozuk/yavaş olan KOBİ'ler; siparişlerini WhatsApp, Excel ve kâğıtla takip eden üretici ve mağazalar; randevu veya sipariş için mobil uygulama isteyen işletmeler; ajans yerine işi yapan mühendisle doğrudan çalışmak isteyenler.
 
