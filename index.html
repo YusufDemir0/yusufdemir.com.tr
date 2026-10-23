@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light" />
   
-  <title>Yusuf Demir — İşletmeler İçin Butik Yazılım & Sistem Mimarlığı</title>
-  <meta name="description" content="İşletmenizi kağıt, defter ve Excel karmaşasından kurtaran özel ERP/CRM omurgaları, App Store onaylı mobil uygulamalar ve yüksek dönüşümlü web platformları." />
+  <title>Yusuf Demir — Bilgisayar Mühendisi & Sistem Mimarlığı</title>
+  <meta name="description" content="İşletmenizi dağınık süreçlerden ve müşteri kaybından kurtaran özel yönetim sistemleri, App Store onaylı mobil uygulamalar ve yüksek dönüşümlü web platformları." />
   <meta name="author" content="Yusuf Demir" />
 
   <!-- Google Fonts: Instrument Sans & JetBrains Mono -->
@@ -16,25 +16,25 @@
 
   <style>
     /* ==========================================================================
-       TACTILE ARCHITECTURAL KRAFT SYSTEM (KÖŞELİ & DOKULU ZANAAT)
-       Relevo & Vinco Kağıt Hissiyatı + Köşeli Mimari Hatlar + Canlı Kor Dokusu
+       TACTILE ARCHITECTURAL SYSTEM (KÖŞELİ & DOKULU ZANAAT)
+       Relevo & Vinco Kağıt Hissiyatı + Keskin Mimari Çizgiler + Sıcak Pres
        ========================================================================== */
     :root {
       /* Deep tactile paper & pulp grounds */
-      --paper-raw: #f5e9d9;           /* Ham lifli kalın kağıt */
+      --paper-raw: #f5e9d9;           /* Ham lifli kalın kağıt zemin */
       --paper-sunken: #ebd6be;        /* Preslenmiş oyuk zemin */
       --paper-card: #fcf6ee;          /* Doku üzerine oturan karton yüzey */
       --paper-card-light: #ffffff;
       
       --paper-border: #d4bc9e;        /* Lifli pres kenar çizgisi */
       --paper-border-strong: #bfa180;
-      --paper-border-dark: #3a2719;
+      --paper-border-dark: #2c1d12;
 
       /* Deep rich espresso & carbon inks */
-      --ink-primary: #21140a;         /* Yoğun kavrulmuş espresso mürekkep */
-      --ink-body: #473424;            /* Sıcak gövde metni */
-      --ink-muted: #785f49;           /* Lif kahvesi ikincil metin */
-      --ink-subtle: #9c836d;          /* Açık teknik etiket rengi */
+      --ink-primary: #1c1108;         /* Yoğun kavrulmuş espresso mürekkep */
+      --ink-body: #423020;            /* Sıcak gövde metni */
+      --ink-muted: #735944;           /* Lif kahvesi ikincil metin */
+      --ink-subtle: #967e69;          /* Açık teknik etiket rengi */
 
       /* Tactile Accents */
       --accent-terracotta: #b44f24;   /* Mühür kırmızısı / sıcak terakota */
@@ -46,11 +46,7 @@
       --font-sans: 'Instrument Sans', -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      /* Köşeli Pres ve Kabartma Gölgeleri (0 Radius) */
-      --shadow-pressed: 
-        inset 1px 2px 4px rgba(33, 20, 10, 0.12),
-        inset -1px -1px 0 rgba(255, 255, 255, 0.8);
-
+      /* Köşeli Pres ve Blok Gölgeleri (0 Radius) */
       --shadow-block: 
         3px 3px 0 var(--paper-border-strong),
         -1px -1px 0 rgba(255, 255, 255, 0.9);
@@ -58,16 +54,13 @@
       --shadow-block-hover: 
         5px 5px 0 var(--paper-border-dark),
         -1px -1px 0 rgba(255, 255, 255, 0.9);
-
-      --shadow-stamp:
-        2px 2px 0 rgba(33, 20, 10, 0.25);
     }
 
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      border-radius: 0 !important; /* KULLANICININ AÇIK İSTEĞİ: KESİNLİKLE KÖŞELİ */
+      border-radius: 0 !important; /* KÖŞELİ MİMARİ STANDART */
     }
 
     body {
@@ -90,7 +83,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Lif ve grid çizgileri */
+    /* Lifli zemin ızgarası */
     .paper-grid {
       position: fixed;
       inset: 0;
@@ -112,11 +105,11 @@
     }
 
     /* ==========================================================================
-       MASTHEAD / KÖŞELİ ÜST MENÜ
+       MASTHEAD / KÖŞELİ ÜST MENÜ & ŞEFFAF LOGO
        ========================================================================== */
     header.site-masthead {
-      padding: 1.25rem 0;
-      border-bottom: 2px solid var(--paper-border-strong);
+      padding: 1.15rem 0;
+      border-bottom: 2px solid var(--paper-border-dark);
       background: rgba(245, 233, 217, 0.94);
       backdrop-filter: blur(6px);
       position: sticky;
@@ -134,22 +127,15 @@
     .brand-block {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.95rem;
       text-decoration: none;
     }
 
-    .brand-stamp {
-      width: 38px;
+    .brand-logo-img {
       height: 38px;
-      background: var(--paper-card);
-      border: 1.5px solid var(--paper-border-dark);
-      color: var(--ink-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.95rem;
-      box-shadow: 2px 2px 0 var(--paper-border-strong);
+      width: auto;
+      display: block;
+      filter: drop-shadow(1px 1px 0 rgba(255,255,255,0.6));
     }
 
     .brand-meta h1 {
@@ -176,12 +162,12 @@
     }
 
     .nav-link {
-      font-size: 0.875rem;
-      font-weight: 600;
+      font-size: 0.85rem;
+      font-weight: 700;
       color: var(--ink-muted);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       transition: color 0.15s;
     }
 
@@ -198,11 +184,11 @@
       justify-content: center;
       gap: 0.5rem;
       padding: 0.75rem 1.4rem;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
-      border: 1.5px solid var(--paper-border-dark);
+      border: 2px solid var(--paper-border-dark);
       transition: all 0.12s ease;
       white-space: nowrap;
       text-transform: uppercase;
@@ -212,7 +198,7 @@
     .btn-terracotta {
       background-color: var(--accent-terracotta);
       color: #ffffff;
-      border-color: #782e11;
+      border-color: #6d280c;
       box-shadow: 3px 3px 0 var(--paper-border-dark);
     }
 
@@ -236,30 +222,8 @@
       color: var(--ink-primary);
     }
 
-    .status-badge-block {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.75rem;
-      background: var(--paper-card);
-      border: 1px solid var(--paper-border-strong);
-      font-family: var(--font-mono);
-      font-size: 0.775rem;
-      font-weight: 600;
-      color: var(--accent-sage);
-      margin-bottom: 1.75rem;
-      box-shadow: 2px 2px 0 var(--paper-sunken);
-    }
-
-    .status-dot-square {
-      width: 7px;
-      height: 7px;
-      background-color: var(--accent-sage);
-      display: inline-block;
-    }
-
     /* ==========================================================================
-       HERO: İKİ SÜTUNLU MİMARİ VE YANAN KAĞIT (BURNING PAPER EFFECT)
+       HERO: İKİ SÜTUNLU MİMARİ VE GELİŞMİŞ DİJİTAL DÖNÜŞÜM VİTRİNİ
        ========================================================================== */
     .hero-layout {
       padding: 4.5rem 0 4rem;
@@ -331,10 +295,9 @@
     }
 
     /* ==========================================================================
-       YANAN KAĞIT // DİJİTALE GEÇİŞ ÇERÇEVESİ (BURNING PAPER ARTIFACT)
-       Kullanıcının kırmızı kutuyla işaretlediği sağ alanı canlandıran odak noktası
+       DİJİTAL DÖNÜŞÜM VİTRİNİ (GELİŞMİŞ ÇİFT KATMANLI VE ETKİLEŞİMLİ PANEL)
        ========================================================================== */
-    .burn-artifact-wrap {
+    .transformation-container {
       position: relative;
       width: 100%;
       height: 480px;
@@ -346,10 +309,10 @@
       flex-direction: column;
     }
 
-    .artifact-header {
+    .trans-header {
       background: var(--paper-sunken);
-      border-bottom: 1.5px solid var(--paper-border-dark);
-      padding: 0.5rem 0.85rem;
+      border-bottom: 2px solid var(--paper-border-dark);
+      padding: 0.6rem 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -357,10 +320,12 @@
       font-size: 0.725rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--ink-muted);
+      color: var(--ink-primary);
+      font-weight: 700;
+      z-index: 10;
     }
 
-    .artifact-stage {
+    .trans-stage {
       position: relative;
       flex: 1;
       width: 100%;
@@ -368,13 +333,13 @@
       overflow: hidden;
     }
 
-    /* Katman 1: Alt taraftaki parlayan, hatasız dijital sistem (Dijital Çekirdek) */
-    .digital-core-layer {
+    /* 1. Katman (Alt): Modern, Canlı Dijital Operasyon Paneli */
+    .trans-digital-layer {
       position: absolute;
       inset: 0;
-      background: #18110b;
+      background: #15100b;
       color: #f7eedf;
-      padding: 2rem 1.75rem;
+      padding: 2.25rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -382,7 +347,7 @@
       z-index: 1;
     }
 
-    .digital-status-live {
+    .digital-status-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -390,63 +355,127 @@
       padding-bottom: 0.75rem;
     }
 
-    .digital-metrics-grid {
+    .digital-status-row span.badge {
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .digital-cards-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
     }
 
-    .metric-pill-dark {
-      background: rgba(255, 255, 255, 0.06);
+    .digital-metric-box {
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 0.85rem 0.75rem;
+      padding: 1rem 0.85rem;
     }
 
-    .metric-pill-dark span.val {
-      font-size: 1.25rem;
+    .digital-metric-box span.val {
+      font-size: 1.3rem;
       font-weight: 700;
-      color: #38bdf8;
+      color: #4ade80;
       display: block;
+      margin-bottom: 0.2rem;
     }
 
-    .metric-pill-dark span.lbl {
+    .digital-metric-box span.lbl {
       font-size: 0.7rem;
-      color: #a8988a;
+      color: #c4b5a5;
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .digital-log-preview {
-      font-size: 0.75rem;
-      color: #a3e635;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 0.75rem;
-      border-left: 2px solid #a3e635;
-      line-height: 1.5;
+    .digital-stream-box {
+      background: rgba(0, 0, 0, 0.5);
+      border-left: 2px solid #38bdf8;
+      padding: 0.85rem;
+      font-size: 0.775rem;
+      color: #cbd5e1;
+      line-height: 1.6;
     }
 
-    /* Katman 2: Üstteki eski usul, yıpranmış, defter/Excel kağıdı */
-    #paper-burn-canvas {
+    /* 2. Katman (Üst): Geleneksel Dağınık Düzen (Kayıplı Süreç) */
+    .trans-paper-layer {
       position: absolute;
       inset: 0;
+      background: #f4e8d8;
+      border-right: 2px solid var(--accent-terracotta);
       z-index: 2;
-      width: 100%;
-      height: 100%;
-      cursor: ew-resize;
+      width: 50%; /* JS ile dinamik sürüklenir */
+      overflow: hidden;
+      box-shadow: 4px 0 16px rgba(0, 0, 0, 0.35);
     }
 
-    .artifact-instruction {
-      position: absolute;
-      bottom: 10px;
-      left: 12px;
-      z-index: 3;
+    .paper-inner-content {
+      width: 480px; /* Sabit genişlikle orantılı okuma */
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .stamp-loss {
+      border: 2px solid #b91c1c;
+      color: #b91c1c;
       font-family: var(--font-mono);
-      font-size: 0.7rem;
-      background: rgba(33, 20, 10, 0.85);
-      color: #f7eedf;
-      padding: 0.25rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      display: inline-block;
+      width: fit-content;
+      transform: rotate(-2deg);
+      letter-spacing: 0.06em;
+    }
+
+    .loss-note-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #3f2d1e;
+      line-height: 1.5;
+      font-family: var(--font-sans);
+      border-bottom: 1px dashed rgba(191, 161, 128, 0.4);
+      padding-bottom: 0.6rem;
+    }
+
+    .loss-note-item span.cross {
+      color: #dc2626;
+      font-weight: 900;
+    }
+
+    /* Sürükleme / Dönüşüm Çizgisi (Kor Efektli Sınır) */
+    .slider-divider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--accent-terracotta);
+      z-index: 5;
+      cursor: ew-resize;
+      box-shadow: 0 0 12px var(--accent-terracotta), 0 0 24px rgba(217, 119, 6, 0.5);
+    }
+
+    .slider-handle-pill {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--paper-border-dark);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.4rem 0.6rem;
+      white-space: nowrap;
+      border: 1px solid var(--accent-terracotta);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
       pointer-events: none;
-      letter-spacing: 0.04em;
     }
 
     /* ==========================================================================
@@ -673,7 +702,7 @@
     }
 
     /* ==========================================================================
-       DÖNÜŞÜM ODAKLI MODÜL: 3 BÜYÜK OPERASYONEL SIZINTI (MÜŞTERİ ÇEKME STRATEJİSİ)
+       GENEL İŞLETME SIZINTILARI (3 EVRENSEL DİJİTAL SORUN)
        ========================================================================== */
     .conversion-leak-section {
       background: var(--paper-sunken);
@@ -749,7 +778,7 @@
     }
 
     /* ==========================================================================
-       ÜCRETSİZ 15 DAKİKALIK TEŞHİS // CONVERSION TRIGGER
+       ÜCRETSİZ 15 DAKİKALIK TEŞHİS // DÖNÜŞÜM KAPISI
        ========================================================================== */
     .audit-invitation-box {
       border: 2px solid var(--paper-border-dark);
@@ -793,12 +822,28 @@
       padding-left: 0.75rem;
     }
 
+    .contact-phone-direct {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-phone-direct:hover {
+      color: var(--accent-terracotta);
+    }
+
     /* ==========================================================================
        FOOTER
        ========================================================================== */
     footer.site-footer {
       border-top: 2px solid var(--paper-border-dark);
-      padding: 2.5rem 0;
+      padding: 2.75rem 0;
       font-family: var(--font-mono);
       font-size: 0.825rem;
       color: var(--ink-muted);
@@ -809,7 +854,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     /* ==========================================================================
@@ -820,8 +865,8 @@
         grid-template-columns: 1fr;
         gap: 3rem;
       }
-      .burn-artifact-wrap {
-        height: 420px;
+      .transformation-container {
+        height: 440px;
       }
       .audit-invitation-box {
         grid-template-columns: 1fr;
@@ -858,8 +903,8 @@
       .hero-perks {
         grid-template-columns: 1fr;
       }
-      .burn-artifact-wrap {
-        height: 380px;
+      .transformation-container {
+        height: 420px;
       }
     }
   </style>
@@ -876,7 +921,7 @@
     <div class="wrap">
       <div class="masthead-inner">
         <a href="#" class="brand-block">
-          <div class="brand-stamp">YD</div>
+          <img src="assets/images/logo-yd.png" alt="Yusuf Demir Logo" class="brand-logo-img" />
           <div class="brand-meta">
             <h1>Yusuf Demir</h1>
             <span>Bilgisayar Mühendisi & Sistem Mimarı</span>
@@ -885,13 +930,13 @@
 
         <ul class="masthead-nav">
           <li><a href="#vakalar" class="nav-link">Canlı Projeler</a></li>
-          <li><a href="#sizintilar" class="nav-link">Operasyonel Analiz</a></li>
-          <li><a href="#teshis" class="nav-link">Ücretsiz Teşhis</a></li>
+          <li><a href="#sorunlar" class="nav-link">Dijital Analiz</a></li>
+          <li><a href="#teshis" class="nav-link">İletişim & Teşhis</a></li>
         </ul>
 
         <div>
-          <a href="https://wa.me/905000000000?text=Merhaba%20Yusuf%20Bey,%20projemiz%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-block btn-terracotta">
-            <span>Doğrudan WhatsApp ↗</span>
+          <a href="https://wa.me/905511345360?text=Merhaba%20Yusuf%20Bey,%20projemiz%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-block btn-terracotta">
+            <span>WhatsApp ile Yazın ↗</span>
           </a>
         </div>
       </div>
@@ -899,27 +944,22 @@
   </header>
 
   <main>
-    <!-- HERO SECTION: İKİ SÜTUNLU MİMARİ VE YANAN KAĞIT DOKUSU -->
+    <!-- HERO SECTION: İKİ SÜTUNLU MİMARİ VE DİJİTAL DÖNÜŞÜM VİTRİNİ -->
     <section class="wrap">
       <div class="hero-layout">
         
         <!-- Sol Sütun: Müşteri Odaklı Başlık ve Vaat -->
         <div class="hero-text-col">
-          <div class="status-badge-block">
-            <span class="status-dot-square"></span>
-            <span>MÜSAİT // YENİ PROJELER VE SİSTEM KURULUMU</span>
-          </div>
-
           <h2 class="hero-title">
             İşletmeniz için özenle inşa edilmiş, <em>gerçekten çalışan</em> dijital sistemler.
           </h2>
 
           <p class="hero-lead">
-            Kağıt faturalar, çöken Excel tabloları ve yarım kalan yazılımcı bahaneleri yerine; işletmenizi tek ekrandan yöneten <strong>özel ERP omurgaları</strong>, <strong>App Store onaylı mobil uygulamalar</strong> ve saniyesinde açılan web sistemleri kuruyorum.
+            Kağıt faturalar, çöken Excel tabloları ve yarım kalan yazılımcı bahaneleri yerine; işletmenizi tek ekrandan yöneten <strong>özel kurumsal omurgalar</strong>, <strong>App Store onaylı mobil uygulamalar</strong> ve saniyesinde açılan web sistemleri kuruyorum.
           </p>
 
           <div class="hero-ctas">
-            <a href="https://wa.me/905000000000?text=Merhaba%20Yusuf%20Bey,%20i%C5%9Fletmemiz%20i%C3%A7in%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-block btn-terracotta" style="padding:0.9rem 1.6rem;">
+            <a href="https://wa.me/905511345360?text=Merhaba%20Yusuf%20Bey,%20i%C5%9Fletmemiz%20i%C3%A7in%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-block btn-terracotta" style="padding:0.9rem 1.6rem;">
               <span>WhatsApp ile Hızlı Tanışma</span>
             </a>
             <a href="#teshis" class="btn-block btn-paper" style="padding:0.9rem 1.6rem;">
@@ -939,52 +979,73 @@
           </div>
         </div>
 
-        <!-- Sağ Sütun: YANAN KAĞIT & DİJİTALE GEÇİŞ ANİMASYONU -->
-        <div class="burn-artifact-wrap">
-          <div class="artifact-header">
-            <span>DİJİTAL DÖNÜŞÜM // METAFOR</span>
-            <span style="color:var(--accent-terracotta);">[KAĞITTAKİ KAOS → DİJİTAL OMURGA]</span>
+        <!-- Sağ Sütun: ETKİLEŞİMLİ DİJİTAL DÖNÜŞÜM ÇERÇEVESİ -->
+        <div class="transformation-container" id="trans-box">
+          <div class="trans-header">
+            <span>DİJİTAL DÖNÜŞÜM // OPERASYONEL FARK</span>
+            <span style="color:var(--accent-terracotta);">[MANUEL SÜREÇ → DİJİTAL OMURGA]</span>
           </div>
 
-          <div class="artifact-stage" id="artifact-stage">
+          <div class="trans-stage" id="trans-stage">
             <!-- Katman 1 (Alt): Modern, Hatasız Canlı Dijital Ekran -->
-            <div class="digital-core-layer">
-              <div class="digital-status-live">
-                <span style="color:#38bdf8;font-weight:700;">● ERMAY ERP // OUTBOX CANLI</span>
-                <span style="font-size:0.75rem;color:#a8988a;">TELIF: 2026.PROD</span>
+            <div class="trans-digital-layer">
+              <div class="digital-status-row">
+                <span class="badge">● SİSTEM ÇEKİRDEĞİ // AKTİF VE SENKRON</span>
+                <span style="font-size:0.75rem;color:#a8988a;">PROD // 0 GECİKME</span>
               </div>
 
-              <div class="digital-metrics-grid">
-                <div class="metric-pill-dark">
+              <div class="digital-cards-grid">
+                <div class="digital-metric-box">
                   <span class="val">0 ADET</span>
-                  <span class="lbl">Kayıp Sipariş</span>
+                  <span class="lbl">Kayıp Sipariş / Talep</span>
                 </div>
-                <div class="metric-pill-dark">
+                <div class="digital-metric-box">
                   <span class="val">18 ms</span>
                   <span class="lbl">Tepki Süresi</span>
                 </div>
-                <div class="metric-pill-dark">
+                <div class="digital-metric-box">
                   <span class="val">CANLI</span>
                   <span class="lbl">Store Onaylı Mobil</span>
                 </div>
-                <div class="metric-pill-dark">
+                <div class="digital-metric-box">
                   <span class="val">%100</span>
-                  <span class="lbl">Kasa & Stok Doğruluk</span>
+                  <span class="lbl">Süreç Şeffaflığı</span>
                 </div>
               </div>
 
-              <div class="digital-log-preview">
-                > SIPARIŞ #1048: ONAYLANDI<br />
-                > STOK: -3 KRİTİK REÇETE DÜŞÜLDÜ<br />
-                > TELEGRAM: PDF FİŞ YÖNETİCİYE İLETİLDİ
+              <div class="digital-stream-box">
+                > MÜŞTERİ TALEBİ / REZERVASYON: ONAYLANDI<br />
+                > STOK VE CARİ: ANLIK GÜNCELLENDİ<br />
+                > BİLDİRİM: TELEGRAM & WHATSAPP'A İLETİLDİ
               </div>
             </div>
 
-            <!-- Katman 2 (Üst): Yanan Eski Kağıt & Kor Ateşi Çizgisi -->
-            <canvas id="paper-burn-canvas"></canvas>
+            <!-- Katman 2 (Üst): Manuel ve Riskli Süreç (Kaydırılabilir Kağıt Katmanı) -->
+            <div class="trans-paper-layer" id="trans-paper">
+              <div class="paper-inner-content">
+                <span class="stamp-loss">[MANUEL VE RİSKLİ SÜREÇ]</span>
+                <div class="loss-note-item">
+                  <span class="cross">✕</span>
+                  <span>WhatsApp ve telefonda unutulan müşteri siparişleri</span>
+                </div>
+                <div class="loss-note-item">
+                  <span class="cross">✕</span>
+                  <span>Telefonda geç açılan ve ziyaretçiyi kaçıran web siteleri</span>
+                </div>
+                <div class="loss-note-item">
+                  <span class="cross">✕</span>
+                  <span>Excel kilitlenmeleri ve hatalı stok/fiyat bildirimleri</span>
+                </div>
+                <div class="loss-note-item">
+                  <span class="cross">✕</span>
+                  <span>Kime ne teslim edileceği bilinmeyen karmaşık operasyon</span>
+                </div>
+              </div>
+            </div>
 
-            <div class="artifact-instruction">
-              ← FAREYİ GEZDİRİN // KAĞITTAN DİJİTALE GEÇİŞ
+            <!-- Ayırıcı Sürükleme Hattı -->
+            <div class="slider-divider-line" id="slider-line" style="left: 50%;">
+              <div class="slider-handle-pill">◂ KAYDIRIN ▸</div>
             </div>
           </div>
         </div>
@@ -1011,30 +1072,34 @@
               </div>
               <h4 class="case-title-text">Kremi — Güzellik & Randevu Mobil Ekosistemi</h4>
               <p class="case-desc-text">
-                Telefon trafiği ve defter kayıtları arasında kaybolan randevuları ortadan kaldıran; salon sahipleri ile müşterileri anlık buluşturan çapraz platform mobil uygulama.
+                Kişisel bakım ve güzellik sektöründe salonlar ile müşterileri tek çatı altında buluşturan, rezervasyon ve salon operasyonlarını cepten yöneten çapraz platform mobil ekosistem.
               </p>
               <ul class="case-bullet-list">
                 <li class="case-bullet-item">
                   <span class="square-icon">■</span>
-                  <span><strong>Apple & Google Store Dağıtımı:</strong> Katı kurallara tam uyumlu, aktif kullanıcılar tarafından indirilen canlı ürün.</span>
+                  <span><strong>Apple & Google Store Dağıtımı:</strong> Katı mağaza inceleme ve sertifikasyon süreçlerinden bizzat geçirilmiş, marketlerde canlı ürün.</span>
                 </li>
                 <li class="case-bullet-item">
                   <span class="square-icon">■</span>
-                  <span><strong>Sıfır İletişim Kaybı:</strong> Müşteriye randevu öncesi otomatik hatırlatmalar ve randevu çakışmalarını engelleyen akıllı motor.</span>
+                  <span><strong>Çift Randevu Koruması:</strong> Müşterilerin uygun zaman slotlarını canlı seçtiği, takvim çakışmalarını sıfırlayan akıllı rezervasyon motoru.</span>
                 </li>
                 <li class="case-bullet-item">
                   <span class="square-icon">■</span>
-                  <span><strong>Cepten Yönetim:</strong> Günlük kasa, randevu saatleri ve personel yükü tek ekranda.</span>
+                  <span><strong>Anlık Bildirim Altyapısı (Push):</strong> Randevu öncesi otomatik hatırlatmalar, iptal/onay süreçleri ve müşteri bağlılığını artıran anlık bildirimler.</span>
+                </li>
+                <li class="case-bullet-item">
+                  <span class="square-icon">■</span>
+                  <span><strong>Tek Kod Tabanı / Yüksek Performans:</strong> Flutter ile hem iOS hem Android cihazlarda takılmadan çalışan akıcı kullanıcı deneyimi.</span>
                 </li>
               </ul>
             </div>
 
             <div class="case-footer-line">
               <a href="https://apps.apple.com/tr/app/kremi/id6758256090" target="_blank" rel="noopener noreferrer" class="store-badge-sharp">
-                <span> APP STORE ↗</span>
+                <span> APP STORE'DA İNCELE ↗</span>
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.kremibeauty.app" target="_blank" rel="noopener noreferrer" class="store-badge-sharp">
-                <span>▶ GOOGLE PLAY ↗</span>
+                <span>▶ GOOGLE PLAY'DE İNCELE ↗</span>
               </a>
             </div>
           </div>
@@ -1042,7 +1107,7 @@
           <div class="case-media-side">
             <div class="kremi-sharp-plate">
               <div class="kremi-icon-box">
-                <img src="assets/images/kremi-icon.png" alt="Kremi Logo" width="60" height="60" />
+                <img src="assets/images/kremi-icon.png" alt="Kremi App Logo" width="64" height="64" />
               </div>
               <div>
                 <h5 style="font-size:1.15rem;font-weight:700;color:var(--ink-primary);">KREMI BEAUTY APP</h5>
@@ -1055,17 +1120,17 @@
           </div>
         </article>
 
-        <!-- VAKA 2: ERMAY CRM/ERP -->
+        <!-- VAKA 2: İMALAT & SATIŞ KURUMSAL YÖNETİM SİSTEMİ -->
         <article class="case-card-box alt-dir">
           <div class="case-info-side">
             <div>
               <div class="case-badge-line">
-                <span class="stamp-tag">İŞLETME YÖNETİM OMURGASI (ERP / CRM)</span>
+                <span class="stamp-tag">KURUMSAL YÖNETİM OMURGASI (ERP / CRM)</span>
                 <span class="live-dot-text">● CANLI ATÖLYE & MAĞAZA</span>
               </div>
-              <h4 class="case-title-text">Ermay — İmalat & Satış Kurumsal Yönetim Sistemi</h4>
+              <h4 class="case-title-text">İmalat & Satış Kurumsal Yönetim Sistemi</h4>
               <p class="case-desc-text">
-                Mobilya üreticisi ve mağaza zinciri için Excel kaosunu bitiren ana dijital omurga. Mağazadaki satış temsilcisinden atölyedeki ustaya kadar tüm operasyon hatasız tek ekranda buluştu.
+                Üretim yapan ve çoklu kanaldan satış yürüten bir işletme için siparişten atölye imalatına, sevkiyattan tahsilata kadar tüm süreçleri birbirine bağlayan özel kurumsal omurga.
               </p>
               <ul class="case-bullet-list">
                 <li class="case-bullet-item">
@@ -1074,30 +1139,30 @@
                 </li>
                 <li class="case-bullet-item">
                   <span class="square-icon">■</span>
-                  <span><strong>Reçeteli İmalat & Eksi Stok Koruması:</strong> Malzeme fireleri önlenir, hammadde bitmeden sistem uyarı verir.</span>
+                  <span><strong>Reçeteli İmalat & Eksi Stok Koruması:</strong> Malzeme fireleri önlenir, hammadde tükenmeden sistem kritik uyarı verir.</span>
                 </li>
                 <li class="case-bullet-item">
                   <span class="square-icon">■</span>
-                  <span><strong>Telegram Anlık Fişler:</strong> Yapılan satış ve tahsilatlar saniyesinde PDF fiş olarak yöneticinin cebine düşer.</span>
+                  <span><strong>Telegram Anlık Fiş Bildirimi:</strong> Yapılan her satış ve tahsilat saniyesinde PDF fiş olarak yöneticinin cebine düşer.</span>
                 </li>
               </ul>
             </div>
 
             <div class="case-footer-line">
               <span style="font-family:var(--font-mono);font-size:0.8rem;font-weight:700;color:var(--ink-muted);">
-                KAZANIM: 0 KAYIP SİPARİŞ · %100 ANLIK NAKİT VE STOK HAKİMİYETİ
+                KAZANIM: SIFIR KAYIP SİPARİŞ · ANLIK NAKİT VE STOK HAKİMİYETİ
               </span>
             </div>
           </div>
 
           <div class="case-media-side">
             <div class="sharp-media-frame">
-              <img src="assets/images/ermay-erp-dashboard.webp" alt="Ermay ERP Yönetim Paneli" loading="lazy" />
+              <img src="assets/images/ermay-erp-dashboard.webp" alt="Kurumsal Yönetim Paneli" loading="lazy" />
             </div>
           </div>
         </article>
 
-        <!-- VAKA 3: UBEI MODERN WEB & E-TİCARET -->
+        <!-- VAKA 3: UBEI MODERN E-TİCARET & KATALOG -->
         <article class="case-card-box">
           <div class="case-info-side">
             <div>
@@ -1107,7 +1172,7 @@
               </div>
               <h4 class="case-title-text">UBEI — Modern E-Ticaret & Ürün Kataloğu</h4>
               <p class="case-desc-text">
-                Yavaş açılan, mobilde butonları kayan ve gelen müşteriyi kaçıran hantal hazır şablonlar yerine; Google hız testlerinde tam puan alan, sepete ekleme ve anlık teklif alma akışıyla ziyaretçiyi müşteriye dönüştüren yaşayan e-ticaret vitrini.
+                Yavaş açılan, mobilde formları çalışmayan ve gelen müşteriyi kaçıran hantal hazır şablonlar yerine; Google hız testlerinde tam puan alan, sepete ekleme ve anlık teklif alma akışıyla ziyaretçiyi müşteriye dönüştüren yaşayan e-ticaret vitrini.
               </p>
               <ul class="case-bullet-list">
                 <li class="case-bullet-item">
@@ -1120,7 +1185,7 @@
                 </li>
                 <li class="case-bullet-item">
                   <span class="square-icon">■</span>
-                  <span><strong>Sıfır Bakım Maliyeti:</strong> Çökmeyen, eklenti güncellemesi gerektirmeyen modern sunucusuz (serverless) altyapı.</span>
+                  <span><strong>Sıfır Bakım Maliyeti:</strong> Çökmeyen, eklenti güncellemesi gerektirmeyen modern sunucusuz altyapı.</span>
                 </li>
               </ul>
             </div>
@@ -1142,46 +1207,49 @@
       </div>
     </section>
 
-    <!-- MÜŞTERİ ÇEKME MODÜLÜ: İŞLETMELERİN 3 BÜYÜK SIZINTISI -->
-    <section id="sizintilar" class="wrap">
+    <!-- GENEL DİJİTAL VE OPERASYONEL SORUNLAR (3 EVRENSEL SIZINTI) -->
+    <section id="sorunlar" class="wrap">
       <div class="conversion-leak-section">
         <div class="leak-header">
-          <span style="font-family:var(--font-mono);font-size:0.75rem;font-weight:700;color:var(--accent-terracotta);text-transform:uppercase;">OPERASYONEL ANALİZ</span>
-          <h3>İşletmeler En Çok Nerede Para ve Müşteri Kaçırır?</h3>
-          <p>Çoğu zaman sorun satışta değil; satışın arkasındaki hantal kağıt ve Excel düzenindedir.</p>
+          <span style="font-family:var(--font-mono);font-size:0.75rem;font-weight:700;color:var(--accent-terracotta);text-transform:uppercase;">OPERASYONEL VE DİJİTAL ANALİZ</span>
+          <h3>İşletmeler En Çok Nerede Müşteri ve Ciro Kaçırır?</h3>
+          <p>Sorun çoğu zaman reklamda veya bütçede değil; potansiyel müşteriyi karşılayan dijital altyapının zayıflığında ve dağınık süreçlerdedir.</p>
         </div>
 
         <div class="leak-grid">
+          <!-- Sızıntı 1 -->
           <div class="leak-card">
-            <span class="leak-tag">SIZINTI 01</span>
-            <h4 class="leak-title">Excel'de Kilitlenen Stoklar</h4>
+            <span class="leak-tag">SIZINTI 01 // WEB</span>
+            <h4 class="leak-title">Dönüşmeyen Ziyaretçiler ve Yavaş Siteler</h4>
             <p class="leak-body">
-              3 kişi aynı dosyayı açtığında bozulan tablolar, depoda var sanılıp satılan ama aslında olmayan ürünler ve müşteriye karşı yaşanan mahcubiyet.
+              Telefonda geç açılan, formları bozuk veya güven vermeyen web sitelerinde ziyaretçiler 3 saniyede sayfayı kapatır. Reklama dökülen bütçe boşa gider, potansiyel müşteri doğrudan rakibe kaçar.
             </p>
             <div class="leak-solution">
-              ✓ ÇÖZÜM: Kritik eksi stok korumalı, anlık güncellenen ERP paneli.
+              ✓ ÇÖZÜM: Saniyesinde açılan, doğrudan teklife ve WhatsApp'a bağlanan net dönüşüm mimarisi.
             </div>
           </div>
 
+          <!-- Sızıntı 2 -->
           <div class="leak-card">
-            <span class="leak-tag">SIZINTI 02</span>
-            <h4 class="leak-title">Yavaş Açılan Web Siteleri</h4>
+            <span class="leak-tag">SIZINTI 02 // MOBİL</span>
+            <h4 class="leak-title">Müşterinin Cebinde Olmamak ve Unutulmak</h4>
             <p class="leak-body">
-              Telefonda 3 saniyeden geç açılan sitelerde ziyaretçilerin %40'ı sayfayı kapatır. Reklama dökülen bütçe çöpe gider.
+              Randevu ya da sipariş için sürekli aramak veya mesaj atmak zorunda kalan müşteriler zamanla kopar. Müşterinin telefonunda yer almayan işletmeler sadık ve tekrarlayan kitle oluşturamaz.
             </p>
             <div class="leak-solution">
-              ✓ ÇÖZÜM: Saniyenin altında açılan, doğrudan WhatsApp'a bağlanan web.
+              ✓ ÇÖZÜM: Apple App Store ve Google Play'de yer alan, anlık bildirimli mobil uygulamalar.
             </div>
           </div>
 
+          <!-- Sızıntı 3 -->
           <div class="leak-card">
-            <span class="leak-tag">SIZINTI 03</span>
-            <h4 class="leak-title">Patrona Bağımlı Operasyon</h4>
+            <span class="leak-tag">SIZINTI 03 // OPERASYON</span>
+            <h4 class="leak-title">Dağınık Kanallar ve Takipsiz Siparişler</h4>
             <p class="leak-body">
-              Atölyede ne bitti, depodan ne çıktı, kim kaporayı aldı bilmek için sürekli telefonla aranmak zorunda kalan yorgun işletme sahipleri.
+              WhatsApp mesajları, telefon notları ve Excel arasında kaybolan siparişler; kime ne teslim edileceği bilinmeyen karışıklıklar ve patronun her detaya tek tek koşmak zorunda kalması.
             </p>
             <div class="leak-solution">
-              ✓ ÇÖZÜM: Telegram'a anlık PDF fiş düşüren otonom bildirim botları.
+              ✓ ÇÖZÜM: Siparişten teslime her aşamanın tek merkezden izlendiği kurumsal takip omurgası.
             </div>
           </div>
         </div>
@@ -1200,10 +1268,16 @@
           <div class="audit-badge">
             "İşletmenizdeki aksaklığı teşhis edelim; ister benimle çalışın, ister kendi ekibinizle düzeltin."
           </div>
+          <div>
+            <a href="tel:+905511345360" class="contact-phone-direct">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+90 551 134 53 60</span>
+            </a>
+          </div>
         </div>
 
         <div class="audit-action-side">
-          <a href="https://wa.me/905000000000?text=Merhaba%20Yusuf%20Bey,%2015%20dakikal%C4%B1k%20operasyonel%20te%C5%9Fhis%20i%C3%A7in%20yaz%C4%B1yorum." target="_blank" rel="noopener noreferrer" class="btn-block btn-terracotta" style="padding:1.1rem 1.6rem;font-size:0.95rem;">
+          <a href="https://wa.me/905511345360?text=Merhaba%20Yusuf%20Bey,%2015%20dakikal%C4%B1k%20operasyonel%20te%C5%9Fhis%20i%C3%A7in%20yaz%C4%B1yorum." target="_blank" rel="noopener noreferrer" class="btn-block btn-terracotta" style="padding:1.1rem 1.6rem;font-size:0.95rem;">
             <span>WhatsApp ile Randevu Al ↗</span>
           </a>
           <a href="mailto:yusufdemir4154@gmail.com" class="btn-block btn-paper" style="padding:0.9rem 1.6rem;font-size:0.85rem;">
@@ -1218,11 +1292,12 @@
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-row">
-        <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/images/logo-yd.png" alt="Yusuf Demir" style="height:26px;width:auto;" />
           <strong>YUSUF DEMİR</strong> // BİLGİSAYAR MÜHENDİSİ
         </div>
         <div>
-          © 2026 yusufdemir.com.tr · BUTİK YAZILIM & SİSTEM MİMARLIĞI
+          İLETİŞİM: +90 551 134 53 60
         </div>
         <div>
           <a href="https://github.com/YusufDemir0" target="_blank" rel="noopener noreferrer" style="color:var(--ink-primary);margin-right:1rem;text-decoration:none;">[GITHUB]</a>
@@ -1233,154 +1308,38 @@
   </footer>
 
   <!-- ==========================================================================
-       YANAN KAĞIT & DİJİTAL GEÇİŞ İNTERAKTİF CANVAS SCRIPT'İ
-       Kullanıcı fareyi gezdirdikçe eski kağıt eriyip yanar, altındaki dijital çekirdek açığa çıkar
-       ========================================================================== */ -->
+       DİJİTAL DÖNÜŞÜM ETKİLEŞİM SCRIPT'İ
+       Kullanıcı fareyi veya dokunuşu gezdirdikçe katman pürüzsüzce açılır
+       ========================================================================== -->
   <script>
     (function() {
-      const canvas = document.getElementById('paper-burn-canvas');
-      const container = document.getElementById('artifact-stage');
-      if (!canvas || !container) return;
+      const stage = document.getElementById('trans-stage');
+      const paper = document.getElementById('trans-paper');
+      const line = document.getElementById('slider-line');
+      if (!stage || !paper || !line) return;
 
-      const ctx = canvas.getContext('2d');
-      let w, h;
-      let splitX = 0;
-      let targetSplitX = 0;
-      let isHovered = false;
+      let isDown = false;
 
-      function resize() {
-        w = canvas.width = container.offsetWidth;
-        h = canvas.height = container.offsetHeight;
-        if (!isHovered) {
-          splitX = w * 0.48;
-          targetSplitX = w * 0.48;
-        }
+      function updateSplit(clientX) {
+        const rect = stage.getBoundingClientRect();
+        let x = clientX - rect.left;
+        if (x < 15) x = 15;
+        if (x > rect.width - 15) x = rect.width - 15;
+
+        const percent = (x / rect.width) * 100;
+        paper.style.width = percent + '%';
+        line.style.left = percent + '%';
       }
-      window.addEventListener('resize', resize);
-      resize();
 
-      container.addEventListener('mousemove', function(e) {
-        const rect = container.getBoundingClientRect();
-        targetSplitX = Math.max(20, Math.min(w - 20, e.clientX - rect.left));
-        isHovered = true;
+      stage.addEventListener('mousemove', function(e) {
+        updateSplit(e.clientX);
       });
 
-      container.addEventListener('mouseleave', function() {
-        targetSplitX = w * 0.48;
-        isHovered = false;
-      });
-
-      // Embers & sparks particles
-      const sparks = [];
-      for (let i = 0; i < 28; i++) {
-        sparks.push({
-          y: Math.random() * h,
-          vx: Math.random() * 2 + 1,
-          vy: (Math.random() - 0.5) * 1.5,
-          life: Math.random(),
-          size: Math.random() * 2.5 + 1
-        });
-      }
-
-      function draw() {
-        // Smooth lerp
-        splitX += (targetSplitX - splitX) * 0.12;
-
-        ctx.clearRect(0, 0, w, h);
-
-        // 1. Draw the OLD PAPER on the left side
-        ctx.save();
-        ctx.beginPath();
-        ctx.rect(0, 0, splitX, h);
-        ctx.clip();
-
-        // Kraft paper tone
-        ctx.fillStyle = '#f5e8d5';
-        ctx.fillRect(0, 0, splitX, h);
-
-        // Ruled ledger lines
-        ctx.strokeStyle = 'rgba(191, 161, 128, 0.45)';
-        ctx.lineWidth = 1;
-        for (let y = 30; y < h; y += 26) {
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(splitX, y);
-          ctx.stroke();
+      stage.addEventListener('touchmove', function(e) {
+        if (e.touches && e.touches[0]) {
+          updateSplit(e.touches[0].clientX);
         }
-
-        // Margin red rule
-        ctx.strokeStyle = 'rgba(239, 68, 68, 0.35)';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(42, 0);
-        ctx.lineTo(42, h);
-        ctx.stroke();
-
-        // Messy handwritten text simulation
-        ctx.fillStyle = '#3a2719';
-        ctx.font = '13px "Instrument Sans", sans-serif';
-        ctx.fillText("ESKİ USUL // KAĞIT & EXCEL DÜZENİ", 55, 45);
-
-        ctx.fillStyle = '#785f49';
-        ctx.font = '11px "JetBrains Mono", monospace';
-        ctx.fillText("• Sipariş fişi kayboldu, atölye yanlış kesti", 55, 78);
-        ctx.fillText("• Müşteri kaporayı kime verdi? (Defterde yok)", 55, 104);
-        ctx.fillText("• Excel kilitlendi, stok uyuşmuyor (-8 eksik)", 55, 130);
-        ctx.fillText("• Telefonda saatlerce 'ürün ne zaman çıkar?'", 55, 156);
-
-        // Big RED STAMP: "HATA / GECİKME"
-        ctx.save();
-        ctx.translate(splitX * 0.45, h * 0.62);
-        ctx.rotate(-0.15);
-        ctx.strokeStyle = 'rgba(185, 28, 28, 0.7)';
-        ctx.lineWidth = 2.5;
-        ctx.strokeRect(-80, -22, 160, 44);
-        ctx.fillStyle = 'rgba(185, 28, 28, 0.85)';
-        ctx.font = 'bold 15px "JetBrains Mono", monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText("KAYIP OPERASYON", 0, 6);
-        ctx.restore();
-
-        ctx.restore();
-
-        // 2. BURNING EMBERS / CORRUGATED CHAR EDGE
-        const burnWidth = 14;
-        const gradient = ctx.createLinearGradient(splitX - burnWidth, 0, splitX + 8, 0);
-        gradient.addColorStop(0, 'rgba(0,0,0,0.85)');     // Charred black paper
-        gradient.addColorStop(0.4, 'rgba(180, 50, 10, 0.9)'); // Deep ember red
-        gradient.addColorStop(0.7, '#ff5722');              // Burning orange flame
-        gradient.addColorStop(0.9, '#ffeb3b');              // White-hot flame spark
-        gradient.addColorStop(1, 'rgba(255, 235, 59, 0)');  // Fade out into digital
-
-        ctx.fillStyle = gradient;
-        ctx.beginPath();
-        // Jagged burning paper edge line
-        ctx.moveTo(splitX - burnWidth, 0);
-        for (let y = 0; y <= h; y += 15) {
-          const jitter = Math.sin(y * 0.08 + Date.now() * 0.005) * 4;
-          ctx.lineTo(splitX + jitter, y);
-        }
-        ctx.lineTo(splitX - burnWidth, h);
-        ctx.closePath();
-        ctx.fill();
-
-        // 3. Floating sparks & embers
-        for (let i = 0; i < sparks.length; i++) {
-          const s = sparks[i];
-          s.life += 0.02;
-          if (s.life > 1) {
-            s.life = 0;
-            s.y = Math.random() * h;
-          }
-          const px = splitX + Math.sin(s.life * 5) * 15 + (s.life * 25);
-          const py = s.y + s.vy * 10;
-          ctx.fillStyle = s.life > 0.5 ? '#ff9800' : '#ffeb3b';
-          ctx.fillRect(px, py, s.size, s.size);
-        }
-
-        requestAnimationFrame(draw);
-      }
-      draw();
+      }, { passive: true });
     })();
   </script>
 </body>
