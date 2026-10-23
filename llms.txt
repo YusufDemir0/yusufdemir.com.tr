@@ -1,0 +1,24 @@
+# Yusuf Demir — Freelance Bilgisayar Mühendisi (Gebze, Kocaeli)
+
+> Gebze/Kocaeli merkezli freelance bilgisayar mühendisi. İstanbul, Kocaeli ve Marmara Bölgesi'ndeki işletmelerle yüz yüze ya da çevrim içi, Türkiye'nin diğer illeriyle uzaktan çalışır. Kurumsal web sitesi, e-ticaret, mobil uygulama (Flutter, iOS/Android) ve işletmeye özel ERP/CRM sistemlerini aracı olmadan kendisi geliştirir.
+
+Kimlere uygun: Web sitesi olmayan ya da sitesi mobilde bozuk/yavaş olan KOBİ'ler; siparişlerini WhatsApp, Excel ve kâğıtla takip eden üretici ve mağazalar; randevu veya sipariş için mobil uygulama isteyen işletmeler; ajans yerine işi yapan mühendisle doğrudan çalışmak isteyenler.
+
+İletişim: Telefon ve WhatsApp +90 551 134 53 60 · E-posta yusufdemir4154@gmail.com · İlk 15 dakikalık görüşme ücretsiz.
+
+## Sayfalar
+
+- [Hizmetler ve sık sorulan sorular](https://yusufdemir.com.tr/hizmetler/): Kurumsal web, e-ticaret, mobil uygulama, ERP/CRM, süreç otomasyonu, site onarımı; hizmet bölgeleri.
+- [Projeler](https://yusufdemir.com.tr/projeler/): Canlıda çalışan referans işler.
+- [Çözümler](https://yusufdemir.com.tr/cozumler/): İşletmelerin müşteri kaçırdığı üç yaygın sorun ve çözümleri.
+- [İletişim](https://yusufdemir.com.tr/iletisim/): Telefon, WhatsApp ve e-posta.
+
+## Canlı projeler
+
+- [Kremi (App Store)](https://apps.apple.com/tr/app/kremi/id6758256090): Güzellik salonları için Flutter randevu uygulaması; çift randevu koruması ve anlık bildirim. Google Play'de de yayında.
+- İmalat ve satış yönetim sistemi (ERP/CRM): Rol bazlı yetki, reçeteli imalat, stok uyarıları, sevkiyat ve tahsilat takibi, Telegram ile PDF fiş bildirimi. Bir mobilya üreticisinde canlı kullanımda.
+- [UBEI e-ticaret mağazası](http://ubei.com.tr/): Kategori filtreli ürün kataloğu, sepet ve WhatsApp ile sipariş talebi.
+
+## Optional
+
+- [GitHub](https://github.com/YusufDemir0)
