@@ -71,7 +71,7 @@ PROJECTS_LD = {"@context": "https://schema.org", "@type": "ItemList", "name": "Y
         "@type": "CreativeWork", "name": "İmalat ve satış yönetim sistemi (ERP/CRM)",
         "url": SITE + "/projeler/#yonetim-sistemi", "creator": {"@id": SITE + "/#kisi"}}},
     {"@type": "ListItem", "position": 3, "item": {
-        "@type": "WebSite", "name": "UBEI telefon aksesuarı mağazası (örnek mağaza)", "url": "https://ubei.com.tr/",
+        "@type": "WebSite", "name": "UBEI telefon aksesuarı e-ticaret sitesi", "url": "https://ubei.com.tr/",
         "creator": {"@id": SITE + "/#kisi"}}}]}
 
 FAQ = [
@@ -214,7 +214,7 @@ def cta_band(title, text):
 HOME = f'''    <section class="wrap hero">
       <div>
         <h1>Defterde, Excel'de ve WhatsApp'ta dağılan işleri <em>tek bir sisteme</em> topluyorum.</h1>
-        <p class="hero-lead">Ben Yusuf Demir, bilgisayar mühendisiyim. İşletmeler için web sitesi, mobil uygulama ve işe özel yönetim sistemleri yapıyorum. Teklifi veren de, kodu yazan da, sonra destek veren de benim.</p>
+        <p class="hero-lead">Ben Yusuf Demir, bilgisayar mühendisiyim. İşletmelerin isteklerine göre modern web siteleri, mobil uygulamalar ve işe özel yönetim sistemleri yapıyorum. Teklifi veren de, kodu yazan da, sonra destek veren de benim.</p>
         <div class="hero-ctas">
           <a href="{WA_GENEL}" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp'tan yazın</a>
           <a href="/iletisim/" class="btn btn-secondary">Ücretsiz ön görüşme</a>
@@ -285,7 +285,7 @@ HOME = f'''    <section class="wrap hero">
         <a class="card" href="/projeler/#ubei">
           <span class="tag">E-ticaret</span>
           <h3>UBEI</h3>
-          <p>Türkiye geneline satış yapan bir telefon aksesuarı mağazası için hazırladığım örnek e-ticaret sitesi.</p>
+          <p>Türkiye geneline satış yapan bir telefon aksesuarı mağazası için modern e-ticaret sitesi.</p>
           <span class="more">Ayrıntılar →</span>
         </a>
       </div>
@@ -301,7 +301,7 @@ PROJECTS = f'''    <section class="wrap">
       <div class="page-head">
         <p class="breadcrumb"><a href="/">Ana sayfa</a> / Projeler</p>
         <h1>Projeler</h1>
-        <p>İki tanesi gerçek müşterilerde kullanılıyor, biri satış altyapısını göstermek için hazırladığım örnek mağaza.</p>
+        <p>Yayında olan ve kullanılan işlerden üçü. Her biri işletmenin isteklerine göre baştan sona tek elden geliştirildi.</p>
       </div>
 
       <div class="cases">
@@ -349,21 +349,21 @@ PROJECTS = f'''    <section class="wrap">
 
         <article id="ubei" class="case">
           <div class="case-body">
-            <div class="case-meta"><span class="tag">E-ticaret · Örnek mağaza</span><span class="status">Canlı demo</span></div>
-            <h2>UBEI: telefon aksesuarı mağazası</h2>
-            <p>Türkiye geneline satış yapan bir aksesuar mağazası senaryosuyla hazırladığım e-ticaret sitesi. Ürünler örnek veri; arayüz, bir müşteri projesinde kullandığım altyapının aynısı.</p>
+            <div class="case-meta"><span class="tag">E-ticaret · Next.js</span><span class="status">Yayında</span></div>
+            <h2>UBEI: telefon aksesuarı e-ticaret sitesi</h2>
+            <p>Türkiye geneline gönderim yapan bir telefon aksesuarı mağazası için modern bir e-ticaret sistemi. Katalog, ürün sayfaları, sepet ve sipariş adımı işletmenin satış biçimine göre kurgulandı.</p>
             <ul>
-              <li>Kategoriye, markaya ve fiyata göre filtreleme</li>
-              <li>Hızlı önizleme, favoriler ve sepet</li>
-              <li>Sepetteki ürünlerle WhatsApp'tan sipariş talebi</li>
-              <li>Telefonda rahat kullanılan, hızlı açılan sayfalar</li>
+              <li>Kategori, fiyat ve malzemeye göre filtreleme; hızlı önizleme ve favoriler</li>
+              <li>Uyumlu model bilgili ürün sayfaları, "birlikte alınanlar" önerileri</li>
+              <li>Kampanya bandı, indirimli ürünler ve sipariş alımını tek anahtarla açıp kapatma</li>
+              <li>Telefonda rahat kullanılan, hızlı açılan sayfalar ve arama motoru verileri</li>
             </ul>
             <div class="case-links">
               <a href="https://ubei.com.tr/" target="_blank" rel="noopener" class="btn btn-secondary btn-small">Mağazayı gezin ↗</a>
             </div>
           </div>
           <div class="case-media">
-            <div class="shot"><img src="/assets/images/ubei-vitrin.webp" alt="UBEI mağazasının ana sayfası" width="1440" height="900" loading="lazy" /></div>
+            <div class="shot"><img src="/assets/images/ubei-vitrin.webp" alt="UBEI e-ticaret sitesinin ana sayfası" width="1440" height="864" loading="lazy" /></div>
           </div>
         </article>
       </div>
@@ -375,8 +375,8 @@ PROJECTS = f'''    <section class="wrap">
 # Hizmetler
 # ---------------------------------------------------------------------------
 SERVICE_CARDS = [
-    ("Kurumsal web sitesi", "Telefonda hızlı açılan, Google'da bulunan, tek dokunuşla arama ve WhatsApp'a bağlanan site."),
-    ("E-ticaret ve ürün kataloğu", "Kategorili ürün vitrini, sepet ve WhatsApp'tan sipariş talebi. Örnek: ubei.com.tr."),
+    ("Kurumsal web sitesi", "İşletmenizin kimliğine ve isteklerine göre tasarlanan, telefonda hızlı açılan, Google'da bulunan modern bir site."),
+    ("E-ticaret ve ürün kataloğu", "Ürün kataloğu, filtreler, sepet ve sipariş adımıyla satışa hazır modern bir e-ticaret sitesi. Son işim: ubei.com.tr."),
     ("Mobil uygulama", "Flutter ile iOS ve Android uygulaması. App Store ve Google Play başvurusu dahil."),
     ("İşletmeye özel yönetim sistemi", "Sipariş, stok, üretim, sevkiyat ve tahsilatı tek ekranda toplayan, yetkiye göre çalışan sistem."),
     ("Süreç otomasyonu", "Excel'le ve kâğıtla yürüyen işleri otomatiğe bağlarım: Telegram/WhatsApp bildirimleri, PDF fiş ve raporlar."),
@@ -412,13 +412,13 @@ SERVICES_HTML = f'''    <section class="wrap">
 PROBLEMS = [
     ("Web sitesi", "Telefonda yavaş açılan site",
      "Ziyaretçilerin çoğu siteye telefondan giriyor. Sayfa geç açılıyorsa, form çalışmıyorsa ya da arama düğmesi yoksa birkaç saniye içinde rakibe geçiyorlar; reklama verilen para da boşa gidiyor.",
-     "Telefonda hızlı açılan, tek dokunuşla arama ve WhatsApp'a bağlanan sade bir site."),
+     "İşletmenizin isteklerine göre tasarlanan, telefonda hızlı açılan ve ziyaretçiyi müşteriye dönüştüren modern bir web sitesi."),
     ("Mobil", "Müşterinin telefonunda olmamak",
-     "Sipariş ya da randevu için her seferinde aramak zorunda kalan müşteri bir süre sonra vazgeçiyor. Uygulaması telefonda duran işletme ise bir bildirimle yeniden hatırlanıyor.",
-     "App Store ve Google Play'de yayınlanan, bildirim gönderebilen bir uygulama."),
+     "Sipariş ya da randevu için her seferinde aramak zorunda kalan müşteri bir süre sonra vazgeçiyor. Kendi uygulaması olan işletmeyi ise müşteri cebinde taşıyor; kampanya ve yenilikler doğrudan ona ulaşıyor.",
+     "İşletmenize özel, App Store ve Google Play'de yayınlanan bir mobil uygulama: sipariş, randevu ya da sadakat programı, neye ihtiyacınız varsa."),
     ("İş takibi", "Defterde, Excel'de ve WhatsApp'ta kaybolan siparişler",
      "Sipariş bir yerde, kapora başka yerde, kargo numarası bir sohbette kalıyor. Kime ne teslim edileceğini öğrenmek için her seferinde birinin aranması gerekiyor.",
-     "Siparişten teslimata her adımı tek ekranda gösteren, işletmeye özel bir takip sistemi."),
+     "Siparişten teslimata her adımı tek ekranda gösteren, işletmenize özel bir yönetim sistemi."),
 ]
 SOLUTIONS = f'''    <section class="wrap">
       <div class="page-head">
@@ -476,7 +476,7 @@ PAGES = {
                        "Freelance bilgisayar mühendisi: kurumsal web sitesi, e-ticaret, mobil uygulama ve işletmeye özel yönetim sistemleri. Türkiye'nin her yerine çevrim içi, Marmara Bölgesi'nde istenirse yüz yüze.",
                        HOME, hand_font=True),
     'projeler/index.html': page('/projeler/', 'Projeler | Yusuf Demir · Freelance Yazılımcı',
-                                "Kremi Beauty mobil alışveriş uygulaması, bir üreticinin imalat ve satış yönetim sistemi ve UBEI örnek e-ticaret mağazası.",
+                                "Kremi Beauty mobil alışveriş uygulaması, bir üreticinin imalat ve satış yönetim sistemi ve UBEI telefon aksesuarı e-ticaret sitesi.",
                                 PROJECTS, 'Projeler', [PROJECTS_LD]),
     'hizmetler/index.html': page('/hizmetler/', 'Hizmetler | Freelance Web, Mobil ve Yönetim Sistemi · Yusuf Demir',
                                  "Kurumsal web sitesi, e-ticaret, mobil uygulama, işletmeye özel yönetim sistemi, süreç otomasyonu ve site onarımı. Türkiye'nin her yerine çevrim içi; Kocaeli, İstanbul ve Marmara'da yüz yüze.",
