@@ -1,11 +1,12 @@
 (function () {
+  // Telefonda açılır menü
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('ana-menu');
   if (toggle && nav) {
     toggle.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.querySelector('.label').textContent = open ? 'Kapat' : 'Menü';
+      toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('is-open')) {
@@ -15,41 +16,42 @@
     });
   }
 
-  var stage = document.getElementById('trans-stage');
-  var paper = document.getElementById('trans-paper');
-  var line = document.getElementById('slider-line');
-  if (!stage || !paper || !line) return;
+  // Yanan kâğıt: görünür olunca bir kez oynar; "Tekrar oynat" baştan başlatır
+  var stage = document.querySelector('.burn-stage');
+  if (!stage) return;
+  var replay = document.querySelector('.replay');
+  var DURATION = 3200;
+  var END = 0.8; // köşelerde yanık kâğıt parçası kalsın
+  var raf = 0;
 
-  var percent = 50;
+  function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
-  function setSplit(p) {
-    percent = Math.max(4, Math.min(96, p));
-    paper.style.width = percent + '%';
-    line.style.left = percent + '%';
-    line.setAttribute('aria-valuenow', String(Math.round(percent)));
+  function play() {
+    cancelAnimationFrame(raf);
+    var start = 0;
+    stage.style.setProperty('--b', '0');
+    function step(now) {
+      if (!start) start = now;
+      var t = Math.min(1, (now - start) / DURATION);
+      stage.style.setProperty('--b', (ease(t) * END).toFixed(4));
+      if (t < 1) raf = requestAnimationFrame(step);
+    }
+    raf = requestAnimationFrame(step);
   }
 
-  function fromX(clientX) {
-    var rect = stage.getBoundingClientRect();
-    setSplit(((clientX - rect.left) / rect.width) * 100);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    stage.style.setProperty('--b', String(END));
+  } else if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        io.disconnect();
+        setTimeout(play, 400);
+      }
+    }, { threshold: 0.5 });
+    io.observe(stage);
+  } else {
+    play();
   }
 
-  function syncWidth() {
-    stage.style.setProperty('--stage-w', stage.clientWidth + 'px');
-  }
-  syncWidth();
-  window.addEventListener('resize', syncWidth);
-
-  stage.addEventListener('mousemove', function (e) { fromX(e.clientX); });
-  stage.addEventListener('touchstart', function (e) {
-    if (e.touches[0]) fromX(e.touches[0].clientX);
-  }, { passive: true });
-  stage.addEventListener('touchmove', function (e) {
-    if (e.touches[0]) fromX(e.touches[0].clientX);
-  }, { passive: true });
-
-  line.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') { setSplit(percent - 5); e.preventDefault(); }
-    if (e.key === 'ArrowRight') { setSplit(percent + 5); e.preventDefault(); }
-  });
+  if (replay) replay.addEventListener('click', play);
 })();

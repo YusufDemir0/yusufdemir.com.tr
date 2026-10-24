@@ -13,11 +13,11 @@ Kimlere uygun: Web sitesi olmayan ya da sitesi mobilde bozuk/yavaş olan KOBİ'l
 - [Çözümler](https://yusufdemir.com.tr/cozumler/): İşletmelerin müşteri kaçırdığı üç yaygın sorun ve çözümleri.
 - [İletişim](https://yusufdemir.com.tr/iletisim/): Telefon, WhatsApp ve e-posta.
 
-## Canlı projeler
+## Projeler
 
-- [Kremi (App Store)](https://apps.apple.com/tr/app/kremi/id6758256090): Güzellik salonları için Flutter randevu uygulaması; çift randevu koruması ve anlık bildirim. Google Play'de de yayında.
-- İmalat ve satış yönetim sistemi (ERP/CRM): Rol bazlı yetki, reçeteli imalat, stok uyarıları, sevkiyat ve tahsilat takibi, Telegram ile PDF fiş bildirimi. Bir mobilya üreticisinde canlı kullanımda.
-- [UBEI e-ticaret mağazası](http://ubei.com.tr/): Kategori filtreli ürün kataloğu, sepet ve WhatsApp ile sipariş talebi.
+- [Kremi (App Store)](https://apps.apple.com/tr/app/kremi/id6758256090): Kremi Beauty'nin cilt bakım ve kozmetik ürünlerini sattığı resmi mobil alışveriş uygulaması (Flutter, iOS ve Android). Kategori ve filtreyle ürün arama, ayrıntılı ürün sayfaları, güvenli ödeme, sipariş takibi, kampanya duyuruları. Google Play'de de yayında.
+- İmalat ve satış yönetim sistemi (ERP/CRM): Bir üreticide kullanımda. Yetkiye göre ekranlar, reçeteli üretim, stok uyarıları, sevkiyat ve tahsilat takibi, Telegram ile PDF fiş bildirimi.
+- [UBEI](https://ubei.com.tr/): Türkiye geneline satış yapan bir telefon aksesuarı mağazası senaryosuyla hazırlanmış örnek e-ticaret sitesi (ürünler örnek veri). Filtreleme, sepet, favoriler ve WhatsApp'tan sipariş talebi.
 
 ## Optional
 
