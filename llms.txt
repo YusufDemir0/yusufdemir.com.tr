@@ -1,6 +1,6 @@
-# Yusuf Demir — Freelance Bilgisayar Mühendisi (İzmit, Kocaeli)
+# Yusuf Demir — Freelance Bilgisayar Mühendisi
 
-> İzmit merkezli freelance bilgisayar mühendisi. Marmara Bölgesi'ndeki işletmelerle yüz yüze ya da çevrim içi, Türkiye'nin her yerindeki işletmelerle çevrim içi çalışır. Kurumsal web sitesi, e-ticaret, mobil uygulama (Flutter, iOS/Android) ve işletmeye özel ERP/CRM sistemlerini aracı olmadan kendisi geliştirir.
+> Freelance bilgisayar mühendisi. Türkiye'nin her yerindeki işletmelerle çevrim içi çalışır; Kocaeli'de (İzmit) bulunduğu için Marmara Bölgesi'ndeki işletmelerle istenirse yüz yüze de görüşür. Kurumsal web sitesi, e-ticaret, mobil uygulama (Flutter, iOS/Android) ve işletmeye özel ERP/CRM sistemlerini aracı olmadan kendisi geliştirir.
 
 Kimlere uygun: Web sitesi olmayan ya da sitesi mobilde bozuk/yavaş olan KOBİ'ler; siparişlerini WhatsApp, Excel ve kâğıtla takip eden üretici ve mağazalar; randevu veya sipariş için mobil uygulama isteyen işletmeler; ajans yerine işi yapan mühendisle doğrudan çalışmak isteyenler.
 
