@@ -39,11 +39,12 @@
     raf = requestAnimationFrame(step);
   }
 
-  // Video varsa CSS animasyonunun yerine o oynar; son karesi gerçek paneli gösterir ve ekranda kalır
+  // Video varsa CSS animasyonunun yerine o oynar: posteri ilk karedir, son karesi gerçek paneli gösterir ve ekranda kalır
   var video = stage.querySelector('.burn-video');
   var cssPlay = play;
-  if (video) {
-    video.addEventListener('playing', function () { stage.classList.add('is-video'); });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (video && !reduce) {
+    stage.classList.add('is-video');
     play = function () {
       video.currentTime = 0;
       var p = video.play();
@@ -51,7 +52,7 @@
     };
   }
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (reduce) {
     stage.style.setProperty('--b', String(END));
   } else if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {

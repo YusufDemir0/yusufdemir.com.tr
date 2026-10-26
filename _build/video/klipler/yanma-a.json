@@ -1,0 +1,16 @@
+{
+ "id": "YANMA-A",
+ "prompt": "<IMAGE_REF_0> is the exact first frame. Static locked-off camera, straight top-down view of a single sheet of lined notebook paper with handwritten notes, lying flat on a uniform chroma-key green background. At 0.5 seconds a small glowing ember appears at the bottom-right corner of the paper. The fire spreads realistically across the sheet: a thin orange flame front, a glowing ember edge, charred black edges curling upward, small sparks and thin wisps of smoke. The paper burns away and crumbles into drifting ash, and by 4.5 seconds it has completely disappeared, leaving only the flat, evenly lit green background. The handwriting stays exactly as it is until the flames reach it. No camera movement, no zoom, no hands, no extra objects, no new text. Photorealistic. No sound needed.",
+ "references": [
+  "/home/yusuf/Belgeler/GitHub/yusufdemir.com.tr/_build/video/ilk-kare.png"
+ ],
+ "video": {
+  "task": "Image to Video",
+  "duration": 5,
+  "resolution": "1080p",
+  "aspect": "9:16",
+  "thinking": "High"
+ },
+ "extensions": [],
+ "at": "2026-10-26T22:51:36.425Z"
+}

@@ -16,6 +16,13 @@ PHONE_TEXT = '+90 551 134 53 60'
 EMAIL = 'yusufdemir4154@gmail.com'
 
 
+def asset_v(rel):
+    # Önbellek kırıcı: dosya değişince bağlantı da değişir
+    import hashlib
+    with open(os.path.join(ROOT, rel), 'rb') as f:
+        return hashlib.md5(f.read()).hexdigest()[:8]
+
+
 def wa(text):
     from urllib.parse import quote
     return 'https://wa.me/905511345360?text=' + quote(text)
@@ -165,7 +172,7 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM özeti" />
   <meta name="msvalidate.01" content="8C53056C7B7CA7FEEABC00C302D14538" />
   <link rel="preload" href="/assets/fonts/instrument-sans-latin-pxiTypc9.woff2" as="font" type="font/woff2" crossorigin />
-{hand_preload}  <link rel="stylesheet" href="/assets/css/site.css" />
+{hand_preload}  <link rel="stylesheet" href="/assets/css/site.css?v={asset_v('assets/css/site.css')}" />
 {lds}</head>
 
 <body>
@@ -215,7 +222,7 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
     </div>
   </footer>
 
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/site.js?v={asset_v('assets/js/site.js')}" defer></script>
   <!-- Cloudflare Web Analytics: çerezsiz ziyaret sayacı -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "ade1c6e47aef44c1b42af82a34fc894d"}}'></script>
 </body>
