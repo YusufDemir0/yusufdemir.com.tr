@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<!-- Paylaşım görseli kaynağı. Üretmek için:
+     google-chrome-stable --headless=new --window-size=1200,630 --hide-scrollbars \
+       --screenshot=og.png _build/og-kapak.html   (sonra JPEG'e çevrilir → assets/images/og-kapak.jpg) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #f5e9d9 url(../assets/images/kagit-doku.png);
+    color: #1c1108;
+    font-family: 'Instrument Sans', sans-serif;
+    padding: 64px 72px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 14px solid #1c1108;
+  }
+  .top { display: flex; align-items: center; gap: 22px; }
+  .top img { width: 92px; height: auto; }
+  .name { font-size: 40px; font-weight: 700; letter-spacing: -0.02em; }
+  .role { font-family: 'JetBrains Mono', monospace; font-size: 20px; color: #5a4636; margin-top: 4px; }
+  h1 { font-size: 62px; line-height: 1.08; letter-spacing: -0.035em; font-weight: 700; max-width: 1000px; }
+  h1 em { font-style: normal; color: #b44f24; }
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end;
+    font-family: 'JetBrains Mono', monospace; font-size: 21px; border-top: 2px dashed #a8927c; padding-top: 22px; }
+  .bottom b { background: #b44f24; color: #fff8ef; padding: 8px 16px; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="top">
+    <img src="../assets/images/logo-yd.png" alt="" />
+    <div>
+      <div class="name">Yusuf Demir</div>
+      <div class="role">Bilgisayar mühendisi · Freelance yazılım</div>
+    </div>
+  </div>
+  <h1>Defterde, Excel'de ve WhatsApp'ta dağılan işleri <em>tek bir sisteme</em> topluyorum.</h1>
+  <div class="bottom">
+    <span>Web sitesi · E-ticaret · Mobil uygulama · Yönetim sistemi</span>
+    <b>yusufdemir.com.tr</b>
+  </div>
+</body>
+</html>

@@ -95,6 +95,17 @@ FAQ = [
      "İşin kapsamına bağlı. Ürün kataloğu ve WhatsApp sipariş düğmesi olan bir kurumsal site çoğu zaman birkaç iş "
      "gününde yayına girer; yönetim sistemi gibi büyük işler parça parça teslim edilir. Net süreyi ilk görüşmede "
      "veririm."),
+    ("Bir proje hangi adımlarla ilerliyor?",
+     "Önce 15 dakikalık ücretsiz görüşmede ne istediğinizi ve işlerinizin nasıl yürüdüğünü dinlerim. Ardından "
+     "kapsamı, süreyi ve fiyatı yazılı olarak gönderirim. Onay verirseniz tasarımı hazırlayıp gösteririm; tasarım "
+     "onaylanınca geliştirmeye geçerim ve ilerlemeyi bir önizleme bağlantısından siz de takip edersiniz. Son "
+     "kontrollerden sonra alan adı, sunucu ya da mağaza başvurusuyla birlikte yayına alırım. Yayından sonra da "
+     "soru ve değişiklik istekleriniz için doğrudan bana ulaşırsınız."),
+    ("Fiyatı nasıl belirliyorsunuz?",
+     "Fiyat işin kapsamına göre değişir: sayfa ya da ekran sayısı, ödeme, üyelik ve yönetim paneli gibi "
+     "özellikler, muhasebe, kargo veya mevcut bir sistemle bağlantı gerekip gerekmediği ve metinlerle "
+     "fotoğrafların hazır olup olmadığı. İlk görüşmeden sonra neyin dahil olduğunu tek tek yazan bir teklif "
+     "veririm. Sonradan kapsam dışı bir istek çıkarsa önce fiyatını konuşur, onayınızla eklerim."),
     ("Ajans yerine freelance bir mühendisle çalışmanın farkı ne?",
      "Teklifi veren, kodu yazan ve sonradan destek veren aynı kişi. İstekleriniz aracıdan aracıya aktarılırken "
      "değişmez, bir değişiklik istediğinizde doğrudan işi yapanla konuşursunuz."),
@@ -142,7 +153,12 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
   <meta property="og:title" content="{t}" />
   <meta property="og:description" content="{d}" />
   <meta property="og:url" content="{SITE + path}" />
-  <meta property="og:image" content="{SITE}/assets/images/logo-yd.png" />
+  <meta property="og:site_name" content="Yusuf Demir" />
+  <meta property="og:image" content="{SITE}/assets/images/og-kapak.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Yusuf Demir: defterde, Excel'de ve WhatsApp'ta dağılan işleri tek bir sisteme topluyorum." />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="geo.region" content="TR-41" />
   <meta name="geo.placename" content="İzmit, Kocaeli" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM özeti" />
