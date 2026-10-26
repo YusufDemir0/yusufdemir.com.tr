@@ -39,6 +39,18 @@
     raf = requestAnimationFrame(step);
   }
 
+  // Video varsa CSS animasyonunun yerine o oynar; son karesi gerçek paneli gösterir ve ekranda kalır
+  var video = stage.querySelector('.burn-video');
+  var cssPlay = play;
+  if (video) {
+    video.addEventListener('playing', function () { stage.classList.add('is-video'); });
+    play = function () {
+      video.currentTime = 0;
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { stage.classList.remove('is-video'); cssPlay(); });
+    };
+  }
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     stage.style.setProperty('--b', String(END));
   } else if ('IntersectionObserver' in window) {
@@ -53,5 +65,5 @@
     play();
   }
 
-  if (replay) replay.addEventListener('click', play);
+  if (replay) replay.addEventListener('click', function () { play(); });
 })();

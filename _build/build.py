@@ -236,6 +236,11 @@ def cta_band(title, text):
 # ---------------------------------------------------------------------------
 # Ana sayfa
 # ---------------------------------------------------------------------------
+# Yanma videosu varsa (Omni + _build/video/isle.sh) CSS animasyonunun yerine oynar; yoksa CSS animasyonu kalır
+BURN_VIDEO = ('''
+          <video class="burn-video" muted playsinline preload="none" poster="/assets/video/yanma-poster.jpg" aria-hidden="true">
+            <source src="/assets/video/yanma.mp4" type="video/mp4" />
+          </video>''' if os.path.exists(os.path.join(ROOT, 'assets/video/yanma.mp4')) else '')
 HOME = f'''    <section class="wrap hero">
       <div>
         <h1>Defterde, Excel'de ve WhatsApp'ta dağılan işleri <em>tek bir sisteme</em> topluyorum.</h1>
@@ -280,7 +285,7 @@ HOME = f'''    <section class="wrap hero">
             </ul>
             <span class="stain"></span>
           </div>
-          <div class="char" aria-hidden="true"></div>
+          <div class="char" aria-hidden="true"></div>{BURN_VIDEO}
         </div>
         <figcaption class="burn-caption">
           <span>Kâğıtta kaybolan işler, sistemde tek ekranda.</span>
