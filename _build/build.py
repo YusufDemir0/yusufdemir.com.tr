@@ -102,10 +102,11 @@ FAQ = [
      "kontrollerden sonra alan adı, sunucu ya da mağaza başvurusuyla birlikte yayına alırım. Yayından sonra da "
      "soru ve değişiklik istekleriniz için doğrudan bana ulaşırsınız."),
     ("Fiyatı nasıl belirliyorsunuz?",
-     "Fiyat işin kapsamına göre değişir: sayfa ya da ekran sayısı, ödeme, üyelik ve yönetim paneli gibi "
-     "özellikler, muhasebe, kargo veya mevcut bir sistemle bağlantı gerekip gerekmediği ve metinlerle "
-     "fotoğrafların hazır olup olmadığı. İlk görüşmeden sonra neyin dahil olduğunu tek tek yazan bir teklif "
-     "veririm. Sonradan kapsam dışı bir istek çıkarsa önce fiyatını konuşur, onayınızla eklerim."),
+     "Fiyat, projenin kapsamına göre belirlenir: sayfa ya da ekran sayısı, ödeme, üyelik ve yönetim paneli gibi "
+     "özellikler, muhasebe, kargo veya mevcut sistemlerle entegrasyon ihtiyacı ve metin ile görsellerin hazır "
+     "olma durumu. İlk görüşmenin ardından kapsamı, teslim süresini ve fiyatı kalem kalem içeren yazılı bir "
+     "teklif sunarım. Süreç içinde kapsam dışı bir talep doğarsa ek maliyeti önceden paylaşır, onayınız "
+     "olmadan çalışmaya başlamam."),
     ("Ajans yerine freelance bir mühendisle çalışmanın farkı ne?",
      "Teklifi veren, kodu yazan ve sonradan destek veren aynı kişi. İstekleriniz aracıdan aracıya aktarılırken "
      "değişmez, bir değişiklik istediğinizde doğrudan işi yapanla konuşursunuz."),
@@ -118,25 +119,25 @@ def ld(obj):
     return '  <script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + '</script>\n'
 
 
-def crumb(name, path):
+def crumb(name, path, parents=()):
+    trail = [("Ana sayfa", "/"), *parents, (name, path)]
     return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": SITE + "/"},
-        {"@type": "ListItem", "position": 2, "name": name, "item": SITE + path}]}
+        {"@type": "ListItem", "position": i, "name": n, "item": SITE + p} for i, (n, p) in enumerate(trail, 1)]}
 
 
 ICON_MENU = '<svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.25" stroke-linecap="square"/></svg>'
 ICON_CLOSE = '<svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.25" stroke-linecap="square"/></svg>'
 
 
-def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, hand_font=False):
+def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, hand_font=False, parents=()):
     items = ''.join(
         f'<li><a href="{h}" class="nav-link"{" aria-current=\"page\"" if h == path else ""}>{t}</a></li>'
         for h, t in NAV)
-    fonts = 'family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700'
-    if hand_font:
-        fonts += '&family=Caveat:wght@500;700'
+    # Fontlar site.css içinde, kendi sunucumuzdan; Caveat yalnız el yazısı kullanılan sayfada iner
+    hand_preload = ('  <link rel="preload" href="/assets/fonts/caveat-latin-Wnz6HAc5.woff2" as="font" type="font/woff2" crossorigin />\n'
+                    if hand_font else '')
     head_meta = '  <meta name="robots" content="noindex" />\n' if noindex else f'  <link rel="canonical" href="{SITE + path}" />\n'
-    lds = '' if noindex else ld(BASE_LD) + (ld(crumb(crumb_name, path)) if crumb_name else '') + ''.join(ld(x) for x in extra_ld)
+    lds = '' if noindex else ld(BASE_LD) + (ld(crumb(crumb_name, path, parents)) if crumb_name else '') + ''.join(ld(x) for x in extra_ld)
     t, d = escape(title), escape(desc)
     return f'''<!DOCTYPE html>
 <html lang="tr-TR">
@@ -162,10 +163,9 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
   <meta name="geo.region" content="TR-41" />
   <meta name="geo.placename" content="İzmit, Kocaeli" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM özeti" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{fonts}&display=swap" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
+  <meta name="msvalidate.01" content="8C53056C7B7CA7FEEABC00C302D14538" />
+  <link rel="preload" href="/assets/fonts/instrument-sans-latin-pxiTypc9.woff2" as="font" type="font/woff2" crossorigin />
+{hand_preload}  <link rel="stylesheet" href="/assets/css/site.css" />
 {lds}</head>
 
 <body>
@@ -194,6 +194,11 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
 {main}
   </main>
 
+  <div class="mobile-bar">
+    <a href="{WA_GENEL}" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp</a>
+    <a href="tel:{PHONE}" class="btn btn-secondary">Ara</a>
+  </div>
+
   <footer class="site-footer">
     <div class="wrap footer-row">
       <div class="footer-brand">
@@ -204,6 +209,8 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
         <a href="tel:{PHONE}">{PHONE_TEXT}</a>
         <a href="mailto:{EMAIL}">E-posta</a>
         <a href="https://github.com/YusufDemir0" target="_blank" rel="noopener">GitHub</a>
+        <a href="/site-kontrolu/">Ücretsiz site kontrolü</a>
+        <a href="/gizlilik/">Gizlilik</a>
       </div>
     </div>
   </footer>
@@ -309,6 +316,14 @@ HOME = f'''    <section class="wrap hero">
       </div>
       <p class="more-row"><a href="/projeler/" class="btn btn-secondary">Tüm projeler</a></p>
 
+      <div class="strip">
+        <div>
+          <span class="eyebrow">Ücretsiz site kontrolü</span>
+          <p>Siteniz var ama telefondan gelen müşteri azsa bağlantıyı gönderin. Mobil görünüme, hıza ve Google'daki durumuna bakıp kısa bir değerlendirme yollayayım.</p>
+        </div>
+        <a href="/site-kontrolu/" class="btn btn-secondary">Nasıl işliyor?</a>
+      </div>
+
 {cta_band("Aklınızdaki işi konuşalım.", "İlk görüşme 15 dakika ve ücretsiz. Ne gerektiğini ve ne kadar süreceğini açıkça söylerim.")}
     </section>'''
 
@@ -393,13 +408,21 @@ PROJECTS = f'''    <section class="wrap">
 # Hizmetler
 # ---------------------------------------------------------------------------
 SERVICE_CARDS = [
-    ("Kurumsal web sitesi", "İşletmenizin kimliğine ve isteklerine göre tasarlanan, telefonda hızlı açılan, Google'da bulunan modern bir site."),
-    ("E-ticaret ve ürün kataloğu", "Ürün kataloğu, filtreler, sepet ve sipariş adımıyla satışa hazır modern bir e-ticaret sitesi. Son işim: ubei.com.tr."),
-    ("Mobil uygulama", "Flutter ile iOS ve Android uygulaması. App Store ve Google Play başvurusu dahil."),
-    ("İşletmeye özel yönetim sistemi", "Sipariş, stok, üretim, sevkiyat ve tahsilatı tek ekranda toplayan, yetkiye göre çalışan sistem."),
-    ("Süreç otomasyonu", "Excel'le ve kâğıtla yürüyen işleri otomatiğe bağlarım: Telegram/WhatsApp bildirimleri, PDF fiş ve raporlar."),
-    ("Site onarımı ve hız", "Mobilde bozuk görünen, formu çalışmayan, SSL hatası veren ya da yavaş açılan siteleri onarırım."),
+    ("Kurumsal web sitesi", "İşletmenizin kimliğine ve isteklerine göre tasarlanan, telefonda hızlı açılan, Google'da bulunan modern bir site.", "/hizmetler/kurumsal-web-sitesi/"),
+    ("E-ticaret ve ürün kataloğu", "Ürün kataloğu, filtreler, sepet ve sipariş adımıyla satışa hazır modern bir e-ticaret sitesi. Son işim: ubei.com.tr.", "/hizmetler/e-ticaret/"),
+    ("Mobil uygulama", "Flutter ile iOS ve Android uygulaması. App Store ve Google Play başvurusu dahil.", "/hizmetler/mobil-uygulama/"),
+    ("İşletmeye özel yönetim sistemi", "Sipariş, stok, üretim, sevkiyat ve tahsilatı tek ekranda toplayan, yetkiye göre çalışan sistem.", "/hizmetler/yonetim-sistemi/"),
+    ("Süreç otomasyonu", "Excel'le ve kâğıtla yürüyen işleri otomatiğe bağlarım: Telegram/WhatsApp bildirimleri, PDF fiş ve raporlar.", None),
+    ("Site onarımı ve hız", "Mobilde bozuk görünen, formu çalışmayan, SSL hatası veren ya da yavaş açılan siteleri onarırım. Önce ücretsiz kontrol.", "/site-kontrolu/"),
 ]
+
+
+def service_card(t, d, href):
+    if not href:
+        return f"""
+          <div class="card"><h2 class="card-title">{t}</h2><p>{d}</p></div>"""
+    return f"""
+          <a class="card" href="{href}"><h2 class="card-title">{t}</h2><p>{d}</p><span class="more">Ayrıntılar →</span></a>"""
 SERVICES_HTML = f'''    <section class="wrap">
       <div class="page-head">
         <p class="breadcrumb"><a href="/">Ana sayfa</a> / Hizmetler</p>
@@ -408,9 +431,14 @@ SERVICES_HTML = f'''    <section class="wrap">
         <p>Türkiye'nin her yerindeki işletmelerle çevrim içi çalışıyorum. Marmara Bölgesi'ndeyseniz isterseniz yüz yüze de görüşebiliriz. Her işi aracı olmadan, baştan sona kendim geliştiriyorum.</p>
       </div>
       <div class="panel">
-        <div class="card-grid">{''.join(f"""
-          <div class="card"><h2 style="font-size:1.25rem;color:var(--ink);line-height:1.25">{t}</h2><p>{d}</p></div>""" for t, d in SERVICE_CARDS)}
+        <div class="card-grid">{''.join(service_card(*c) for c in SERVICE_CARDS)}
         </div>
+      </div>
+
+      <div class="section-head"><h2>Sektöre göre</h2></div>
+      <div class="card-grid card-grid-2">
+        <a class="card" href="/sektorler/uretici-ve-imalat/"><span class="tag">Üretim</span><h3>Üreticiler ve imalatçılar</h3><p>Sipariş, kapora, üretim sırası, stok ve sevkiyatın tek yerden takibi; ürünleri gösteren bir katalog sitesi.</p><span class="more">Ayrıntılar →</span></a>
+        <a class="card" href="/sektorler/magaza-ve-markalar/"><span class="tag">Satış</span><h3>Mağazalar ve markalar</h3><p>Kendi e-ticaret siteniz ve müşterinin telefonunda duran bir mobil uygulama.</p><span class="more">Ayrıntılar →</span></a>
       </div>
 
       <div class="section-head"><h2>Sık sorulan sorular</h2></div>
@@ -476,7 +504,234 @@ CONTACT = f'''    <section class="wrap">
           <a href="{WA_ON_GORUSME}" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp'tan yazın</a>
           <a href="tel:{PHONE}" class="btn btn-secondary">Arayın: {PHONE_TEXT}</a>
           <a href="mailto:{EMAIL}" class="btn btn-secondary"><span class="email">{EMAIL}</span></a>
+          <a href="/yusuf-demir.vcf" download class="btn btn-secondary">Rehbere ekle</a>
         </div>
+      </div>
+    </section>'''
+
+# ---------------------------------------------------------------------------
+# Hizmet ve sektör ayrıntı sayfaları
+# ---------------------------------------------------------------------------
+WA_SITE_KONTROL = wa('Merhaba Yusuf Bey, ücretsiz site kontrolü istiyorum. Sitemin adresi: ')
+
+DETAIL_PAGES = [
+    {"path": "/hizmetler/kurumsal-web-sitesi/", "parent": ("Hizmetler", "/hizmetler/"), "crumb": "Kurumsal web sitesi",
+     "title": "Kurumsal Web Sitesi | Yusuf Demir · Freelance Yazılımcı",
+     "desc": "İşletmenizi doğru anlatan, telefonda hızlı açılan ve Google'da bulunan kurumsal web sitesi. Tasarım, yayına alma ve Search Console kaydı dahil.",
+     "eyebrow": "Hizmet", "h1": "Kurumsal web sitesi",
+     "lead": "İşletmenizi doğru anlatan, telefonda hızlı açılan ve Google'da bulunan bir site. Tasarım işletmenizin kimliğine göre hazırlanır; metin düzeni, müşterinin aradığını ilk bakışta bulacağı şekilde kurulur.",
+     "includes": ["İşletmenize özel tasarım ve sayfa düzeni",
+                  "Telefon, tablet ve bilgisayarda düzgün görünüm",
+                  "WhatsApp, arama ve e-posta düğmeleri",
+                  "Sayfa başlıkları, açıklamalar, site haritası ve Google Search Console kaydı",
+                  "Alan adı, SSL sertifikası ve yayına alma",
+                  "İsterseniz ürün kataloğu ya da teklif isteme bölümü"],
+     "fit": ["Henüz sitesi olmayan ya da sitesi eskimiş işletmeler",
+             "Müşterisine gönderebileceği derli toplu bir bağlantı isteyenler",
+             "Reklam verdiği hâlde siteden dönüş alamayanlar"],
+     "related": None,
+     "faq": [("Sitemi sonradan kendim güncelleyebilir miyim?",
+              "İhtiyaca göre. Ürün, duyuru ya da fiyat gibi sık değişen içerikler için yönetim paneli eklenebilir. Nadiren değişen sitelerde güncellemeleri ben yaparım."),
+             ("Bir kurumsal site ne kadar sürede yayına girer?",
+              "Kapsama bağlı. Ürün kataloğu ve WhatsApp düğmesi olan bir kurumsal site çoğu zaman birkaç iş gününde yayına girer. Net süreyi ilk görüşmede veririm.")]},
+    {"path": "/hizmetler/e-ticaret/", "parent": ("Hizmetler", "/hizmetler/"), "crumb": "E-ticaret sitesi",
+     "title": "E-ticaret Sitesi ve Ürün Kataloğu | Yusuf Demir · Freelance Yazılımcı",
+     "desc": "Kategori, filtre, ürün sayfası, sepet ve sipariş adımıyla işletmenize özel e-ticaret sitesi. Online ödeme ya da sipariş talebiyle çalışabilir.",
+     "eyebrow": "Hizmet", "h1": "E-ticaret sitesi",
+     "lead": "Ürünlerinizi kategorilere ayıran, aramayı ve filtrelemeyi kolaylaştıran, sepetten siparişe kadar sorunsuz ilerleyen bir mağaza. Satış biçiminize göre kurulur: kartla ödeme, havale ya da sipariş talebi.",
+     "includes": ["Kategori, arama ve filtreler",
+                  "Görselli, seçenekli ve stok bilgili ürün sayfaları",
+                  "Sepet ve sipariş adımı; kartla ödeme için sanal POS bağlantısı ya da sipariş talebi",
+                  "Kampanya bandı ve indirimli ürünler",
+                  "Sipariş alımını tek anahtarla açıp kapatma",
+                  "Google'ın ürünleri doğru okuması için yapılandırılmış veri"],
+     "fit": ["Instagram ya da WhatsApp'tan satış yapıp düzene geçmek isteyenler",
+             "Pazaryeri komisyonu yerine kendi mağazasını isteyenler",
+             "Ürünlerini katalog olarak gösterip sipariş talebi toplamak isteyen üreticiler"],
+     "related": ("UBEI", "Telefon aksesuarı mağazası için kurduğum e-ticaret sitesi.", "/projeler/#ubei"),
+     "faq": [("Online ödeme almak zorunda mıyım?",
+              "Hayır. Bazı işletmeler için sipariş talebi toplayıp ödemeyi havale ya da teslimatta almak daha uygundur. İki yol da kurulabilir, sonradan biri diğerine çevrilebilir."),
+             ("Ürünleri kim yükler?",
+              "İlk ürünleri birlikte yükleriz; sonrasında yönetim panelinden siz ekleyip güncelleyebilirsiniz.")]},
+    {"path": "/hizmetler/mobil-uygulama/", "parent": ("Hizmetler", "/hizmetler/"), "crumb": "Mobil uygulama",
+     "title": "Mobil Uygulama Geliştirme (iOS ve Android) | Yusuf Demir · Freelance Yazılımcı",
+     "desc": "Flutter ile tek kod tabanından iOS ve Android uygulaması. App Store ve Google Play başvurusu ve yayın süreci dahil.",
+     "eyebrow": "Hizmet", "h1": "Mobil uygulama",
+     "lead": "Flutter ile tek kod tabanından iOS ve Android uygulaması. Uygulamanın tasarımından mağaza başvurusuna ve yayından sonraki güncellemelere kadar süreci ben yürütürüm.",
+     "includes": ["iOS ve Android için tek kod tabanı",
+                  "Kullanıcı girişi, sipariş, randevu ya da sadakat programı; ihtiyaca göre",
+                  "Kampanya ve sipariş bildirimleri",
+                  "Mevcut web sitenizle ya da sisteminizle bağlantı",
+                  "App Store ve Google Play başvurusu, inceleme sürecinin takibi"],
+     "fit": ["Müşterisinin telefonunda yer almak isteyen markalar",
+             "Web mağazasındaki alışverişi uygulamaya taşımak isteyenler",
+             "Sipariş ya da randevuyu telefonla almaktan yorulan işletmeler"],
+     "related": ("Kremi", "Kremi Beauty'nin App Store ve Google Play'de yayında olan alışveriş uygulaması.", "/projeler/#kremi"),
+     "faq": [("Uygulama mağazalarda ne kadar sürede yayınlanır?",
+              "Apple ve Google'ın incelemesi genelde birkaç gün sürer. İnceleme sırasında bir düzeltme istenirse yapıp yeniden gönderirim."),
+             ("Hem iOS hem Android için ayrı ayrı mı yapılıyor?",
+              "Hayır. Flutter ile tek bir kod yazılır ve iki platformda da çalışır; bu, hem süreyi hem bakım maliyetini düşürür.")]},
+    {"path": "/hizmetler/yonetim-sistemi/", "parent": ("Hizmetler", "/hizmetler/"), "crumb": "Yönetim sistemi (ERP / CRM)",
+     "title": "İşletmeye Özel Yönetim Sistemi (ERP / CRM) | Yusuf Demir · Freelance Yazılımcı",
+     "desc": "Sipariş, stok, üretim, sevkiyat ve tahsilatı tek ekranda toplayan, yetkiye göre çalışan işletmeye özel ERP / CRM sistemi.",
+     "eyebrow": "Hizmet", "h1": "İşletmeye özel yönetim sistemi",
+     "lead": "Siparişi, stoğu, üretimi, sevkiyatı ve tahsilatı tek ekranda toplayan; herkesin yalnız kendi işini gördüğü bir sistem. Hazır bir programa uymaya çalışmak yerine sistem sizin iş akışınıza göre kurulur.",
+     "includes": ["Yetkiye göre ekranlar: satış, depo, sevkiyat ve yönetim ayrı ayrı",
+                  "Sipariş, kapora ve müşteri kaydı",
+                  "Stok, reçeteli üretim ve kritik stok uyarıları",
+                  "Sevkiyat ve tahsilat takibi",
+                  "PDF fiş ve irsaliye; Telegram ya da WhatsApp bildirimi",
+                  "Web sitenizden gelen siparişlerin sisteme düşmesi"],
+     "fit": ["Siparişini defterde, Excel'de ya da WhatsApp'ta takip eden işletmeler",
+             "Hem üretip hem satan imalatçılar",
+             "Birden fazla mağazası ya da deposu olanlar"],
+     "related": ("İmalat ve satış yönetim sistemi", "Bir üreticide kullanılan, satıştan tahsilata her adımı tek ekranda toplayan sistem.", "/projeler/#yonetim-sistemi"),
+     "faq": [("Hazır bir ERP programı yerine neden özel sistem?",
+              "Hazır programlar herkese göre yapılır; işletme ya programa uyar ya da yalnız bir kısmını kullanır. Özel sistem sizin iş akışınıza göre kurulur ve yalnız gereken ekranları içerir. Küçük başlayıp ihtiyaç oldukça büyütülebilir."),
+             ("Sistem bir anda mı devreye giriyor?",
+              "Hayır, parça parça teslim edilir. Genelde önce sipariş ve müşteri kaydıyla başlanır; stok, üretim ve tahsilat sonraki aşamalarda eklenir.")]},
+    {"path": "/sektorler/uretici-ve-imalat/", "parent": ("Hizmetler", "/hizmetler/"), "crumb": "Üreticiler ve imalatçılar",
+     "title": "Üreticiler İçin Sipariş, Üretim ve Stok Takibi | Yusuf Demir",
+     "desc": "Üretici ve imalatçılar için sipariş, kapora, üretim sırası, stok ve sevkiyatı tek yerden takip eden sistem ve ürün kataloğu sitesi.",
+     "eyebrow": "Sektör", "h1": "Üreticiler ve imalatçılar için",
+     "lead": "Üretim yapan işletmelerde iş çoğu zaman siparişin kendisinde değil, takibinde aksar: kapora bir yerde yazılı, üretim sırası ustanın aklında, sevkiyat tarihi bir WhatsApp sohbetinde. Bunu tek bir sistemde topluyorum.",
+     "includes": ["Siparişin kapora, üretim ve teslim durumuyla birlikte kaydı",
+                  "Reçeteye göre malzeme ihtiyacı ve kritik stok uyarısı",
+                  "Sevkiyat planı ve teslimde tahsilat kaydı",
+                  "Bayi ya da mağaza satışlarının aynı sistemde toplanması",
+                  "Ürünleri gösteren, sipariş talebi toplayan bir katalog sitesi"],
+     "fit": ["Mobilya, ahşap, metal ve benzeri sipariş üzerine üretim yapanlar",
+             "Birden fazla satış noktası ya da bayisi olan üreticiler",
+             "Toptan ve perakendeyi birlikte yürütenler"],
+     "related": ("İmalat ve satış yönetim sistemi", "Hem üreten hem birden fazla mağazadan satan bir işletmede kullanılıyor.", "/projeler/#yonetim-sistemi"),
+     "faq": [("Ustalarımız bilgisayar kullanmıyor, sistem işe yarar mı?",
+              "Ekranlar herkesin yalnız kendi işini göreceği şekilde sade tutulur; depo ya da atölye için telefondan kullanılabilen kısa ekranlar yapılabilir.")]},
+    {"path": "/sektorler/magaza-ve-markalar/", "parent": ("Hizmetler", "/hizmetler/"), "crumb": "Mağazalar ve markalar",
+     "title": "Mağazalar ve Markalar İçin E-ticaret ve Mobil Uygulama | Yusuf Demir",
+     "desc": "Mağazalar ve markalar için kendi e-ticaret sitesi ve App Store ile Google Play'de yayınlanan mobil alışveriş uygulaması.",
+     "eyebrow": "Sektör", "h1": "Mağazalar ve markalar için",
+     "lead": "Satışın bir kısmı pazaryerinde, bir kısmı Instagram mesajlarında, bir kısmı da telefonda yürüyorsa müşteri de siz de zorlanırsınız. Kendi mağazanız ve isterseniz kendi uygulamanızla satış tek bir yere toplanır.",
+     "includes": ["Markanıza özel e-ticaret sitesi: katalog, filtre, sepet ve sipariş",
+                  "iOS ve Android alışveriş uygulaması",
+                  "Kampanya, indirim ve duyuru alanları",
+                  "Sipariş takibi ve müşteriye durum bilgisi",
+                  "Google'da ürünlerin doğru görünmesi için yapılandırılmış veri"],
+     "fit": ["Kozmetik, giyim, aksesuar ve benzeri ürün satan markalar",
+             "Pazaryeri komisyonunu azaltmak isteyen mağazalar",
+             "Sadık müşterisine doğrudan ulaşmak isteyen işletmeler"],
+     "related": ("Kremi ve UBEI", "Bir kozmetik markasının mobil uygulaması ve bir aksesuar mağazasının e-ticaret sitesi.", "/projeler/"),
+     "faq": [("Önce site mi, uygulama mı?",
+              "Çoğu işletme için önce site. Müşteri ilk olarak Google'dan ya da paylaşılan bir bağlantıdan gelir; uygulama, düzenli alışveriş yapan müşteri kitlesi oluştuğunda daha çok işe yarar.")]},
+]
+
+
+def detail_page(d):
+    items = ''.join(f"\n            <li>{escape(x)}</li>" for x in d["includes"])
+    fit = ''.join(f"\n            <li>{escape(x)}</li>" for x in d["fit"])
+    faq = ''.join(f"""
+        <details>
+          <summary>{escape(q)}</summary>
+          <p>{escape(a)}</p>
+        </details>""" for q, a in d["faq"])
+    related = ''
+    if d["related"]:
+        n, t, h = d["related"]
+        related = f'''
+          <a class="card" href="{h}"><span class="tag">İlgili iş</span><h3>{escape(n)}</h3><p>{escape(t)}</p><span class="more">Ayrıntılar →</span></a>'''
+    pn, pp = d["parent"]
+    return f'''    <section class="wrap">
+      <div class="page-head">
+        <p class="breadcrumb"><a href="/">Ana sayfa</a> / <a href="{pp}">{pn}</a> / {escape(d["crumb"])}</p>
+        <span class="eyebrow">{d["eyebrow"]}</span>
+        <h1>{escape(d["h1"])}</h1>
+        <p>{escape(d["lead"])}</p>
+      </div>
+      <div class="svc">
+        <div class="panel">
+          <h2 class="svc-h">Neler dahil</h2>
+          <ul class="checklist">{items}
+          </ul>
+          <h2 class="svc-h">Kimler için</h2>
+          <ul class="checklist">{fit}
+          </ul>
+        </div>
+        <aside class="svc-side">{related}
+          <div class="card">
+            <h3>15 dakikalık ön görüşme</h3>
+            <p>Ne istediğinizi anlatın; nasıl ilerleyeceğimizi, süreyi ve yaklaşık kapsamı açıkça söyleyeyim.</p>
+            <a href="{WA_ON_GORUSME}" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp'tan yazın</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="section-head"><h2>Sık sorulan sorular</h2></div>
+      <div class="faq">{faq}
+      </div>
+
+{cta_band("Fiyatı ve süreci merak ediyor musunuz?", 'Nasıl çalıştığımı ve fiyatın nasıl belirlendiğini <a href="/hizmetler/">Hizmetler</a> sayfasındaki sorularda anlattım.')}
+    </section>'''
+
+
+def detail_ld(d):
+    faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in d["faq"]]}
+    svc = {"@context": "https://schema.org", "@type": "Service", "name": d["h1"], "description": d["desc"],
+           "url": SITE + d["path"], "provider": {"@id": SITE + "/#hizmet"}, "areaServed": AREAS}
+    return [svc, faq]
+
+
+SITE_CHECK = f'''    <section class="wrap">
+      <div class="page-head">
+        <p class="breadcrumb"><a href="/">Ana sayfa</a> / Ücretsiz site kontrolü</p>
+        <span class="eyebrow">Site onarımı ve hız</span>
+        <h1>Ücretsiz site kontrolü</h1>
+        <p>Sitenizin bağlantısını gönderin. Telefonda nasıl göründüğüne, ne kadar hızlı açıldığına ve Google'da nasıl çıktığına bakıp kısa ve anlaşılır bir değerlendirme yollayayım.</p>
+      </div>
+      <div class="svc">
+        <div class="panel">
+          <h2 class="svc-h">Neye bakıyorum</h2>
+          <ul class="checklist">
+            <li>Telefonda görünüm: taşan bölümler, okunmayan yazılar, küçük kalan düğmeler</li>
+            <li>Açılış hızı ve hızı düşüren görseller ya da kodlar</li>
+            <li>WhatsApp, arama ve form düğmeleri gerçekten çalışıyor mu</li>
+            <li>SSL sertifikası ve tarayıcının verdiği güvenlik uyarıları</li>
+            <li>Google'da görünürlük: sayfa başlıkları, açıklamalar ve dizine eklenme</li>
+            <li>Yapay zeka asistanlarının sitenizi okuyup önerebilmesi için gereken temel ayarlar</li>
+          </ul>
+          <h2 class="svc-h">Nasıl ilerliyor</h2>
+          <ul class="checklist">
+            <li>Site adresinizi WhatsApp'tan ya da e-postayla gönderirsiniz.</li>
+            <li>Siteyi telefonda ve bilgisayarda inceler, bulduklarımı önem sırasıyla yazarım.</li>
+            <li>Ne yapılması gerektiğini açıkça söylerim. Benimle çalışmak zorunda değilsiniz; listeyi kendi ekibinize de verebilirsiniz.</li>
+          </ul>
+        </div>
+        <aside class="svc-side">
+          <div class="card">
+            <h3>Site adresinizi gönderin</h3>
+            <p>Mesajınıza sitenizin adresini eklemeniz yeterli.</p>
+            <a href="{WA_SITE_KONTROL}" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp'tan gönderin</a>
+            <a href="mailto:{EMAIL}?subject=%C3%9Ccretsiz%20site%20kontrol%C3%BC" class="btn btn-secondary">E-postayla gönderin</a>
+          </div>
+        </aside>
+      </div>
+    </section>'''
+
+PRIVACY = f'''    <section class="wrap">
+      <div class="page-head">
+        <p class="breadcrumb"><a href="/">Ana sayfa</a> / Gizlilik</p>
+        <h1>Gizlilik</h1>
+        <p>Bu sitede üyelik, form ya da çerez yok. Hangi bilgilerin nerede işlendiğini aşağıda kısaca anlattım.</p>
+      </div>
+      <div class="panel prose">
+        <h2 class="svc-h">Ziyaret istatistikleri</h2>
+        <p>Kaç kişinin hangi sayfayı ziyaret ettiğini görmek için Cloudflare Web Analytics kullanıyorum. Bu araç çerez kullanmaz ve ziyaretçiyi tanımlamaz; yalnız sayfa adresi, geldiğiniz site, tarayıcı türü ve ülke gibi toplu bilgiler tutulur.</p>
+        <h2 class="svc-h">Barındırma</h2>
+        <p>Site GitHub Pages üzerinde yayınlanıyor. GitHub, güvenlik ve hizmetin işleyişi için ziyaretçilerin IP adresi gibi teknik kayıtları tutabilir. Fontlar ve görseller bu sitenin kendi sunucusundan yüklenir; üçüncü taraf bir font ya da reklam servisi kullanılmaz.</p>
+        <h2 class="svc-h">Benimle iletişime geçtiğinizde</h2>
+        <p>WhatsApp, telefon ya da e-postayla paylaştığınız bilgileri yalnız talebinizi yanıtlamak ve teklif hazırlamak için kullanırım; üçüncü kişilerle paylaşmam.</p>
+        <h2 class="svc-h">Haklarınız</h2>
+        <p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında bilgilerinize erişmek, düzeltilmesini ya da silinmesini istemek için <a href="mailto:{EMAIL}">{EMAIL}</a> adresine yazabilirsiniz.</p>
+        <p class="muted">Son güncelleme: 27 Ekim 2026</p>
       </div>
     </section>'''
 
@@ -505,12 +760,28 @@ PAGES = {
     'iletisim/index.html': page('/iletisim/', 'İletişim | Yusuf Demir · Freelance Yazılımcı',
                                 f"Yusuf Demir ile 15 dakikalık ücretsiz ön görüşme. Telefon ve WhatsApp: {PHONE_TEXT}. Türkiye'nin her yerine çevrim içi; Marmara'da istenirse yüz yüze.",
                                 CONTACT, 'İletişim'),
+    'site-kontrolu/index.html': page('/site-kontrolu/', 'Ücretsiz Site Kontrolü | Yusuf Demir · Freelance Yazılımcı',
+                                     "Sitenizin bağlantısını gönderin; mobil görünüm, hız, çalışmayan düğmeler, SSL ve Google görünürlüğü için ücretsiz ve bağlayıcı olmayan bir değerlendirme alın.",
+                                     SITE_CHECK, 'Ücretsiz site kontrolü'),
+    'gizlilik/index.html': page('/gizlilik/', 'Gizlilik | Yusuf Demir', 'Bu sitede hangi bilgilerin nerede işlendiği: çerezsiz ziyaret istatistikleri, barındırma ve iletişim.',
+                                PRIVACY, 'Gizlilik'),
     '404.html': page('/404.html', 'Sayfa bulunamadı | Yusuf Demir', 'Aradığınız sayfa bulunamadı.', NOT_FOUND, noindex=True),
 }
+for d in DETAIL_PAGES:
+    PAGES[d["path"].strip('/') + '/index.html'] = page(d["path"], d["title"], d["desc"], detail_page(d), d["crumb"],
+                                                      detail_ld(d), parents=[d["parent"]])
 
 for rel, html in PAGES.items():
     path = os.path.join(ROOT, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'w', encoding='utf-8') as f:
         f.write(html)
+
+# Site haritası: 404 dışındaki bütün sayfalar
+from datetime import date
+urls = ['/' if r == 'index.html' else '/' + r[:-len('index.html')] for r in PAGES if r != '404.html']
+with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+    f.write(''.join(f'  <url><loc>{SITE}{u}</loc><lastmod>{date.today().isoformat()}</lastmod></url>\n' for u in urls))
+    f.write('</urlset>\n')
 print('yazıldı:', ', '.join(PAGES))

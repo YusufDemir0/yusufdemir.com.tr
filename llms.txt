@@ -12,6 +12,13 @@ Kimlere uygun: Web sitesi olmayan ya da sitesi mobilde bozuk/yavaş olan KOBİ'l
 - [Projeler](https://yusufdemir.com.tr/projeler/): Canlıda çalışan referans işler.
 - [Çözümler](https://yusufdemir.com.tr/cozumler/): İşletmelerin müşteri kaçırdığı üç yaygın sorun ve çözümleri.
 - [İletişim](https://yusufdemir.com.tr/iletisim/): Telefon, WhatsApp ve e-posta.
+- [Ücretsiz site kontrolü](https://yusufdemir.com.tr/site-kontrolu/): Site adresini gönderen işletmeye mobil görünüm, hız, çalışmayan düğmeler, SSL ve Google görünürlüğü için ücretsiz, bağlayıcı olmayan değerlendirme.
+- [Kurumsal web sitesi](https://yusufdemir.com.tr/hizmetler/kurumsal-web-sitesi/)
+- [E-ticaret sitesi](https://yusufdemir.com.tr/hizmetler/e-ticaret/)
+- [Mobil uygulama (iOS ve Android, Flutter)](https://yusufdemir.com.tr/hizmetler/mobil-uygulama/)
+- [İşletmeye özel yönetim sistemi (ERP / CRM)](https://yusufdemir.com.tr/hizmetler/yonetim-sistemi/)
+- [Üreticiler ve imalatçılar için](https://yusufdemir.com.tr/sektorler/uretici-ve-imalat/): Sipariş, kapora, üretim, stok ve sevkiyat takibi.
+- [Mağazalar ve markalar için](https://yusufdemir.com.tr/sektorler/magaza-ve-markalar/): Kendi e-ticaret sitesi ve mobil alışveriş uygulaması.
 
 ## Projeler
 

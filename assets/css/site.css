@@ -3,6 +3,126 @@
    Performans: doku tek bir küçük PNG karosu; ekran boyu sabit katman ve
    backdrop-filter yok; animasyon tek bir CSS değişkeniyle (--b) maskeleri sürer.
    ========================================================================== */
+/* Kendi sunucumuzdan verilen fontlar (SIL Open Font License). Yalnız latin + latin-ext (Türkçe) alt kümeleri. */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/caveat-latin-ext-Wnz6HAc5.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/caveat-latin-Wnz6HAc5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/caveat-latin-ext-Wnz6HAc5.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/caveat-latin-Wnz6HAc5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/instrument-sans-latin-ext-pxiTypc9.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/instrument-sans-latin-pxiTypc9.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/instrument-sans-latin-ext-pxiTypc9.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/instrument-sans-latin-pxiTypc9.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/instrument-sans-latin-ext-pxiTypc9.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/assets/fonts/instrument-sans-latin-pxiTypc9.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono-latin-ext-tDbv2o-f.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono-latin-tDbv2o-f.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono-latin-ext-tDbv2o-f.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/assets/fonts/jetbrains-mono-latin-tDbv2o-f.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --paper-raw: #f5e9d9;
   --paper-sunken: #ebd6be;
@@ -365,6 +485,37 @@ a.card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink
 .footer-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
 .footer-links a { color: var(--ink); }
 
+/* ---------- Hizmet ayrıntı sayfaları ---------- */
+.card-title { font-size: 1.25rem; color: var(--ink); line-height: 1.25; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); margin-bottom: 4rem; }
+.svc { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 2rem; align-items: start; margin-bottom: 4rem; }
+.svc .panel { margin-bottom: 0; }
+.svc-h { font-size: 1.3rem; color: var(--ink); letter-spacing: -0.02em; margin: 0 0 1rem; }
+.svc-h:not(:first-child) { margin-top: 2.25rem; }
+.svc-side { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 6.5rem; }
+.svc-side .btn { width: 100%; }
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.checklist li { position: relative; padding-left: 1.5rem; }
+.checklist li::before { content: ""; position: absolute; left: 0.1rem; top: 0.5em; width: 9px; height: 5px; border-left: 2px solid var(--sage); border-bottom: 2px solid var(--sage); transform: rotate(-45deg); }
+.prose p { max-width: 760px; }
+.prose p + p { margin-top: 0.75rem; }
+.prose a { color: var(--accent); font-weight: 700; }
+.muted { color: var(--ink-muted); font-size: 0.9rem; margin-top: 2rem; }
+.cta-band p a { color: var(--accent); font-weight: 700; }
+
+/* Ücretsiz site kontrolü şeridi (ana sayfa) */
+.strip {
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  margin-top: 3.5rem; padding: 1.5rem 1.75rem;
+  border: 2px dashed var(--paper-border-strong); background: var(--paper-card);
+}
+.strip .eyebrow { margin-bottom: 0.35rem; }
+.strip p { max-width: 720px; }
+.strip .btn { flex-shrink: 0; }
+
+/* Telefonda alta yapışık iletişim çubuğu */
+.mobile-bar { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
@@ -375,6 +526,9 @@ a.card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink
   .hero { grid-template-columns: 1fr; gap: 3rem; padding-top: 3rem; padding-bottom: 3rem; }
   .card-grid { grid-template-columns: 1fr; }
   .contact-box { grid-template-columns: 1fr; padding: 2.5rem 2rem; }
+  .svc { grid-template-columns: 1fr; }
+  .svc-side { position: static; }
+  .card-grid-2 { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 860px) {
@@ -431,4 +585,15 @@ a.card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink
   a.card:hover, .btn:hover { transform: none; }
   .contact-box, .cta-band { padding: 1.75rem 1.25rem; box-shadow: 5px 5px 0 var(--accent); }
   .cta-band .btn { width: 100%; }
+  .strip { flex-direction: column; align-items: stretch; padding: 1.25rem; }
+  .strip .btn { width: 100%; }
+
+  .mobile-bar {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom));
+    background: var(--paper-raw); border-top: 2px solid var(--ink);
+  }
+  .mobile-bar .btn { min-height: 48px; padding: 0.6rem; box-shadow: none; }
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
