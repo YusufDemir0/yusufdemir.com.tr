@@ -209,6 +209,8 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
   </footer>
 
   <script src="/assets/js/site.js" defer></script>
+  <!-- Cloudflare Web Analytics: çerezsiz ziyaret sayacı -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "ade1c6e47aef44c1b42af82a34fc894d"}}'></script>
 </body>
 </html>
 '''
