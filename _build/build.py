@@ -162,10 +162,10 @@ def page(path, title, desc, main, crumb_name=None, extra_ld=(), noindex=False, h
   <meta property="og:description" content="{d}" />
   <meta property="og:url" content="{SITE + path}" />
   <meta property="og:site_name" content="Yusuf Demir" />
-  <meta property="og:image" content="{SITE}/assets/images/og-kapak.jpg" />
+  <meta property="og:image" content="{SITE}/assets/images/og-kapak.jpg?v={asset_v('assets/images/og-kapak.jpg')}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Yusuf Demir: defterde, Excel'de ve WhatsApp'ta dağılan işleri tek bir sisteme topluyorum." />
+  <meta property="og:image:alt" content="Yusuf Demir: İşletmenize özel bir web sitesi, uygulama ya da yönetim sistemi mi gerekiyor?" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="geo.region" content="TR-41" />
   <meta name="geo.placename" content="İzmit, Kocaeli" />
@@ -250,8 +250,8 @@ BURN_VIDEO = ('''
           </video>''' if os.path.exists(os.path.join(ROOT, 'assets/video/yanma.mp4')) else '')
 HOME = f'''    <section class="wrap hero">
       <div>
-        <h1>Defterde, Excel'de ve WhatsApp'ta dağılan işleri <em>tek bir sisteme</em> topluyorum.</h1>
-        <p class="hero-lead">Ben Yusuf Demir, bilgisayar mühendisiyim. İşletmelerin isteklerine göre modern web siteleri, mobil uygulamalar ve işe özel yönetim sistemleri yapıyorum. Teklifi veren de, kodu yazan da, sonra destek veren de benim.</p>
+        <h1>İşletmenize özel bir <em>web sitesi, uygulama ya da yönetim sistemi</em> mi gerekiyor?</h1>
+        <p class="hero-lead">Ben Yusuf Demir, bilgisayar mühendisiyim. İhtiyacınızı birlikte netleştirir, işinize uygun ve kullanımı kolay bir çözüm geliştiririm. Planlamadan yayına, yayından sonraki desteğe kadar tek bir muhatapla çalışırsınız.</p>
         <div class="hero-ctas">
           <a href="{WA_GENEL}" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp'tan yazın</a>
           <a href="/iletisim/" class="btn btn-secondary">Ücretsiz ön görüşme</a>
